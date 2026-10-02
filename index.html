@@ -1,0 +1,2931 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milo & Bit: The Digital Quest | Platform Pembelajaran & Simulasi Interaktif</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Luckiest Guy, Fredoka, Poppins, Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-bubble: 'Luckiest Guy', cursive;
+      --font-friendly: 'Fredoka', 'Poppins', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+    
+    body {
+      font-family: var(--font-friendly);
+      background-color: #f0f9ff;
+      background-image: 
+        radial-gradient(#bae6fd 2px, transparent 2px),
+        radial-gradient(#e0f2fe 2px, #f0f9ff 2px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    /* 3D Super-Vibrant Title Styles */
+    .title-milo-bit {
+      font-family: var(--font-bubble);
+      letter-spacing: 2px;
+      color: #0284c7;
+      text-shadow: 
+        4px 4px 0px #fbbf24,
+        -2px -2px 0px #38bdf8,
+        0px 8px 15px rgba(2, 132, 199, 0.35);
+    }
+
+    .wooden-banner {
+      background: linear-gradient(180deg, #d97706 0%, #b45309 50%, #78350f 100%);
+      border: 4px solid #fef08a;
+      box-shadow: 0 8px 0 #451a03, 0 12px 20px rgba(120, 53, 15, 0.4);
+      border-radius: 20px;
+      position: relative;
+    }
+    .wooden-banner::before {
+      content: '★';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fef08a;
+      font-size: 18px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    .wooden-banner::after {
+      content: '★';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fef08a;
+      font-size: 18px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    /* Vibrant 3D Candy Cards */
+    .vibrant-card {
+      background: #ffffff;
+      border: 3.5px solid #0284c7;
+      box-shadow: 0 8px 0 #0369a1, 0 15px 25px rgba(2, 132, 199, 0.15);
+      border-radius: 28px;
+      transition: all 0.2s ease;
+    }
+    .vibrant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 0 #0369a1, 0 20px 30px rgba(2, 132, 199, 0.25);
+    }
+
+    .card-emerald {
+      border-color: #10b981;
+      box-shadow: 0 8px 0 #047857, 0 15px 25px rgba(16, 185, 129, 0.15);
+    }
+    .card-emerald:hover {
+      box-shadow: 0 12px 0 #047857, 0 20px 30px rgba(16, 185, 129, 0.25);
+    }
+
+    .card-red {
+      border-color: #ef4444;
+      box-shadow: 0 8px 0 #b91c1c, 0 15px 25px rgba(239, 68, 68, 0.15);
+    }
+    .card-red:hover {
+      box-shadow: 0 12px 0 #b91c1c, 0 20px 30px rgba(239, 68, 68, 0.25);
+    }
+
+    .card-purple {
+      border-color: #a855f7;
+      box-shadow: 0 8px 0 #7e22ce, 0 15px 25px rgba(168, 85, 247, 0.15);
+    }
+    .card-purple:hover {
+      box-shadow: 0 12px 0 #7e22ce, 0 20px 30px rgba(168, 85, 247, 0.25);
+    }
+
+    .card-amber {
+      border-color: #f59e0b;
+      box-shadow: 0 8px 0 #b45309, 0 15px 25px rgba(245, 158, 11, 0.15);
+    }
+    .card-amber:hover {
+      box-shadow: 0 12px 0 #b45309, 0 20px 30px rgba(245, 158, 11, 0.25);
+    }
+
+    .card-pink {
+      border-color: #ec4899;
+      box-shadow: 0 8px 0 #be185d, 0 15px 25px rgba(236, 72, 153, 0.15);
+    }
+    .card-pink:hover {
+      box-shadow: 0 12px 0 #be185d, 0 20px 30px rgba(236, 72, 153, 0.25);
+    }
+
+    /* 3D Interactive Candy Buttons */
+    .btn-3d-yellow {
+      background: linear-gradient(180deg, #fde047 0%, #eab308 60%, #ca8a04 100%);
+      box-shadow: 0 6px 0 #854d0e, 0 10px 18px rgba(202, 138, 4, 0.35);
+      transition: all 0.1s ease;
+      color: #451a03;
+    }
+    .btn-3d-yellow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #854d0e, 0 14px 22px rgba(202, 138, 4, 0.45);
+    }
+    .btn-3d-yellow:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #854d0e, 0 4px 10px rgba(202, 138, 4, 0.25);
+    }
+
+    .btn-3d-cyan {
+      background: linear-gradient(180deg, #38bdf8 0%, #0ea5e9 60%, #0284c7 100%);
+      box-shadow: 0 6px 0 #0369a1, 0 10px 18px rgba(2, 132, 199, 0.35);
+      transition: all 0.1s ease;
+      color: white;
+    }
+    .btn-3d-cyan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #0369a1, 0 14px 22px rgba(2, 132, 199, 0.45);
+    }
+    .btn-3d-cyan:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #0369a1;
+    }
+
+    .btn-3d-green {
+      background: linear-gradient(180deg, #4ade80 0%, #22c55e 60%, #16a34a 100%);
+      box-shadow: 0 6px 0 #15803d, 0 10px 18px rgba(22, 163, 74, 0.35);
+      transition: all 0.1s ease;
+      color: white;
+    }
+    .btn-3d-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #15803d;
+    }
+    .btn-3d-green:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #15803d;
+    }
+
+    /* 3D Character Avatar Frames */
+    .character-frame-3d {
+      border: 4px solid #ffffff;
+      box-shadow: 0 8px 0 rgba(0,0,0,0.15), 0 15px 25px rgba(0,0,0,0.2);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .character-frame-3d:hover {
+      transform: translateY(-6px) scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 0 rgba(0,0,0,0.2), 0 20px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Animations */
+    @keyframes float3D {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1.5deg); }
+    }
+    @keyframes hoverRobot {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-8px) scale(1.03); }
+    }
+    .animate-float {
+      animation: float3D 3.5s ease-in-out infinite;
+    }
+    .animate-robot {
+      animation: hoverRobot 2.8s ease-in-out infinite;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #e0f2fe; }
+    ::-webkit-scrollbar-thumb { background: #0284c7; border-radius: 5px; }
+
+    /* Print styles */
+    @media print {
+      body * { visibility: hidden; }
+      #printable-cert, #printable-cert * { visibility: visible; }
+      #printable-cert {
+        position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;
+        margin: 0; padding: 20px; box-shadow: none; border: 8px double #ca8a04 !important;
+      }
+    }
+  </style>
+</head>
+<body class="text-slate-900 min-h-screen flex flex-col selection:bg-amber-300 selection:text-slate-900">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-4 border-amber-400 px-4 py-3 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand & Mascot Intro with 3D Thumbnail -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('hub')">
+        <div class="relative w-14 h-14 rounded-2xl overflow-hidden character-frame-3d border-2 border-amber-400 bg-sky-100 flex items-center justify-center animate-robot">
+          <img src="assets/bit.jpg" alt="Bit Robot Mascot" class="w-full h-full object-cover">
+          <span class="absolute -bottom-1 -right-1 bg-red-600 text-[10px] font-black px-1.5 py-0.2 rounded-full text-white border border-white">AI</span>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bubble text-3xl text-sky-600 tracking-wider drop-shadow-sm">MILO & BIT</span>
+            <span class="bg-gradient-to-r from-amber-500 to-orange-500 text-[11px] font-black px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-md">The Digital Quest</span>
+          </div>
+          <p class="text-xs text-sky-900 font-bold">Platform Eksplorasi Digital & AI Sekolah Menengah</p>
+        </div>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <nav class="hidden lg:flex items-center space-x-2">
+        <button onclick="showSection('hub')" class="nav-btn px-3.5 py-2 rounded-xl font-black text-xs bg-amber-400 text-slate-950 hover:bg-amber-300 transition flex items-center gap-1.5 shadow-sm border border-amber-500">
+          <span>🏠</span> Utama
+        </button>
+        <button onclick="showSection('modul1')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-sky-100 text-sky-900 transition">
+          <span>⚙️</span> Asas Digital
+        </button>
+        <button onclick="showSection('modul2')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-emerald-100 text-emerald-900 transition">
+          <span>🌐</span> Rangkaian & WiFi
+        </button>
+        <button onclick="showSection('modul3')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-red-100 text-red-900 transition">
+          <span>🛡️</span> Keselamatan Siber
+        </button>
+        <button onclick="showSection('modul4')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-purple-100 text-purple-900 transition">
+          <span>📊</span> MS Office
+        </button>
+        <button onclick="showSection('modul5')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-amber-100 text-amber-900 transition">
+          <span>☁️</span> Google Drive
+        </button>
+        <button onclick="showSection('modul6')" class="nav-btn px-3 py-2 rounded-xl font-bold text-xs hover:bg-pink-100 text-pink-900 transition">
+          <span>🤖</span> AI & Prompting
+        </button>
+        <button onclick="showSection('simulasi-hub')" class="nav-btn px-4 py-2 rounded-xl font-black text-xs bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1.5 shadow-md">
+          <span>🎮</span> 6 Simulasi
+        </button>
+      </nav>
+
+      <!-- User XP & Sound Controller -->
+      <div class="flex items-center space-x-3">
+        <div class="bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-300 border-2 border-amber-500 px-4 py-1.5 rounded-2xl flex items-center space-x-2 shadow-md">
+          <span class="text-2xl animate-bounce">⭐</span>
+          <div>
+            <div class="text-[10px] text-amber-900 uppercase font-black tracking-wider">Mata XP</div>
+            <div id="user-xp" class="text-base font-black text-slate-950 font-mono leading-none">0 XP</div>
+          </div>
+        </div>
+
+        <button id="sound-btn" onclick="toggleAudio()" class="w-11 h-11 rounded-2xl bg-white border-2 border-slate-300 flex items-center justify-center text-xl hover:bg-slate-100 transition text-slate-800 shadow-md" title="Kesan Bunyi">
+          🔊
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO POSTER BANNER WITH 3D CHARACTERS ==================== -->
+  <section class="relative bg-gradient-to-b from-sky-400 via-sky-100 to-white pt-8 pb-12 px-4 border-b-4 border-sky-300 overflow-hidden shadow-inner">
+    
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+      
+      <!-- Poster Left Content -->
+      <div class="flex-1 text-center lg:text-left space-y-4">
+        
+        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-300 text-slate-950 px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-wider shadow-md border-2 border-amber-500 transform -rotate-1">
+          <span>✨</span> EDISI KHAS SEKOLAH MENENGAH & GURU INOVATIF MALAYSIA
+        </div>
+
+        <div>
+          <h1 class="text-5xl sm:text-7xl font-bubble text-sky-600 tracking-wide leading-none drop-shadow-[0_4px_0_#0284c7]">
+            Milo & Bit
+          </h1>
+          <div class="wooden-banner inline-block px-7 py-3 my-2">
+            <h2 class="text-2xl sm:text-4xl font-bubble text-yellow-300 tracking-wider uppercase drop-shadow-md">
+              The Digital Quest
+            </h2>
+          </div>
+          <p class="text-slate-800 font-extrabold text-base sm:text-xl max-w-xl mt-1 leading-relaxed">
+            "Sertai Milo & Bit dalam pengembaraan menguasai Asas Komputer, Microsoft Office, Google Drive, Sains WiFi & Kuasa Prompting AI!"
+          </p>
+        </div>
+
+        <!-- 3D Feature Pills with Solid Color Accents -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+          <div class="flex items-center gap-2 bg-white border-2 border-sky-400 px-3.5 py-1.5 rounded-xl text-xs font-black text-sky-900 shadow-md">
+            <span class="text-lg">💡</span> Konsep Jelas & Mudah
+          </div>
+          <div class="flex items-center gap-2 bg-white border-2 border-emerald-400 px-3.5 py-1.5 rounded-xl text-xs font-black text-emerald-900 shadow-md">
+            <span class="text-lg">🎮</span> 6 Simulasi Praktikal
+          </div>
+          <div class="flex items-center gap-2 bg-white border-2 border-purple-400 px-3.5 py-1.5 rounded-xl text-xs font-black text-purple-900 shadow-md">
+            <span class="text-lg">🤖</span> Studio Prompt AI PdP
+          </div>
+          <div class="flex items-center gap-2 bg-white border-2 border-amber-400 px-3.5 py-1.5 rounded-xl text-xs font-black text-amber-900 shadow-md">
+            <span class="text-lg">🏆</span> Sijil Digital Murid
+          </div>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          <button onclick="showSection('modul1')" class="btn-3d-yellow px-7 py-4 rounded-2xl font-black text-slate-950 text-base sm:text-lg flex items-center gap-2.5 shadow-xl">
+            <span>🚀</span> MULAKAN PENJELAJAHAN!
+          </button>
+          <button onclick="showSection('simulasi-hub')" class="btn-3d-cyan px-7 py-4 rounded-2xl font-black text-white text-base sm:text-lg flex items-center gap-2.5 shadow-xl">
+            <span>🎮</span> ZON 6 SIMULASI INTERAKTIF
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Poster Right: 3D Cartoon Characters Hero Showcase -->
+      <div class="w-full lg:w-[480px] relative flex flex-col items-center">
+        <div class="w-full bg-white border-4 border-amber-400 rounded-3xl p-5 shadow-2xl relative overflow-hidden text-center">
+          
+          <!-- Animated Cartoon Hero Banner Scene -->
+          <div class="w-full h-56 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md relative group">
+            <img src="assets/hero_banner.jpg" alt="Milo and Bit in Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3">
+              <span class="text-white font-black text-xs drop-shadow-md">Studio Pembelajaran Digital Milo & Bit</span>
+            </div>
+          </div>
+
+          <!-- Speech Bubble from Bit -->
+          <div class="bg-sky-50 text-slate-900 px-4 py-2.5 rounded-2xl rounded-bl-none text-xs font-bold shadow-md my-3 text-left border-2 border-sky-400 relative">
+            <span class="text-sky-600 font-extrabold">Bit </> :</span> "Hai kawan-kawan! Jom kita faham teknologi sebenar dari dalam bersama Milo & Bit!"
+            <div class="absolute -bottom-2 left-4 w-3 h-3 bg-sky-50 border-r-2 border-b-2 border-sky-400 transform rotate-45"></div>
+          </div>
+
+          <!-- Two Prominent 3D Character Cards -->
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            
+            <!-- Milo Avatar Card -->
+            <div class="p-3 rounded-2xl border-3 border-red-400 bg-red-50 flex flex-col items-center text-center cursor-pointer shadow-md transform hover:-translate-y-1 transition" onclick="mascotSpeak('Milo', 'Jom fahami kitaran data komputer dan bina formula Excel!')">
+              <div class="w-20 h-20 rounded-full overflow-hidden character-frame-3d border-2 border-red-500 shadow-lg animate-float">
+                <img src="assets/milo.jpg" alt="Milo 3D Character" class="w-full h-full object-cover">
+              </div>
+              <span class="mt-2 text-sm font-black text-slate-900">Milo</span>
+              <span class="text-[10px] text-red-800 font-black bg-red-200 px-2.5 py-0.5 rounded-full mt-1 border border-red-300">Peneroka Inovatif</span>
+            </div>
+
+            <!-- Bit Avatar Card -->
+            <div class="p-3 rounded-2xl border-3 border-sky-400 bg-sky-50 flex flex-col items-center text-center cursor-pointer shadow-md transform hover:-translate-y-1 transition" onclick="mascotSpeak('Bit', 'Saya sedia membantu anda menulis prompt AI dan kuasai keselamatan siber!')">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden character-frame-3d border-2 border-sky-500 shadow-lg animate-robot">
+                <img src="assets/bit.jpg" alt="Bit Robot 3D Character" class="w-full h-full object-cover">
+              </div>
+              <span class="mt-2 text-sm font-black text-slate-900">Bit &lt;/&gt;</span>
+              <span class="text-[10px] text-sky-800 font-black bg-sky-200 px-2.5 py-0.5 rounded-full mt-1 border border-sky-300">Robot Pembantu AI</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full space-y-12">
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 0: COMMAND HUB / DASHBOARD -->
+    <!-- ========================================================================= -->
+    <section id="section-hub" class="space-y-8">
+      
+      <!-- Welcome Card with Milo & Bit Avatars -->
+      <div class="vibrant-card p-6 sm:p-8 relative bg-gradient-to-r from-sky-50 via-white to-amber-50">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center lg:text-left">
+            <span class="px-4 py-1.5 bg-amber-400 text-slate-950 rounded-full text-xs font-black uppercase tracking-wider border-2 border-amber-500 shadow-sm">
+              🎓 Silibus Lengkap, Terperinci & Praktikal
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Stesen Penerokaan Interaktif Bersama Milo & Bit</h2>
+            <p class="text-slate-700 text-sm sm:text-base max-w-2xl leading-relaxed font-semibold">
+              Pilih mana-mana modul di bawah untuk memulakan pengembaraan. Setiap modul dilengkapi penjelasan mendalam, contoh dunia sebenar dan simulasi praktikal!
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick="showSection('simulasi-hub')" class="btn-3d-cyan px-5 py-3.5 rounded-2xl font-black text-white text-sm flex items-center justify-center gap-2">
+              <span>🎮</span> Buka 6 Simulasi
+            </button>
+            <button onclick="showSection('kuiz-akhir')" class="btn-3d-yellow px-5 py-3.5 rounded-2xl font-black text-slate-900 text-sm flex items-center justify-center gap-2">
+              <span>🏆</span> Ujian & Sijil Murid
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Learning Module Cards Grid with Super Vibrant Borders & Banners -->
+      <div>
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center text-2xl font-bold font-bubble shadow-md border-2 border-amber-500">
+              1-6
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-slate-900">6 Modul Pembelajaran Berstruktur</h3>
+              <p class="text-xs text-slate-600 font-bold">Kuasai setiap topik secara interaktif dan kumpul mata XP!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="vibrant-card p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-sky-100 rounded-2xl border-2 border-sky-400 text-sky-700 shadow-sm">⚙️</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-sky-600 text-white rounded-full uppercase shadow">Modul 1</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-sky-600 transition">Asas Teknologi & Pemprosesan Data</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Fahami kitaran Input-Proses-Output-Storan, perbezaan Perkakasan vs Perisian, dan simulasi penukar kod biner 0 & 1.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-sky-900">
+                <span class="bg-sky-100 px-2.5 py-1 rounded-lg border border-sky-300">Kitaran IPO</span>
+                <span class="bg-sky-100 px-2.5 py-1 rounded-lg border border-sky-300">Hardware & Software</span>
+                <span class="bg-sky-100 px-2.5 py-1 rounded-lg border border-sky-300">Kod Biner</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul1')" class="mt-6 w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 1 Bersama Milo</span> ➔
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="vibrant-card card-emerald p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-emerald-100 rounded-2xl border-2 border-emerald-400 text-emerald-700 shadow-sm">🌐</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-emerald-600 text-white rounded-full uppercase shadow">Modul 2</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-emerald-600 transition">Rangkaian Komputer, LAN vs WAN & WiFi</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Perbezaan LAN & WAN, cara menyambung ke WiFi, sains gelombang radio 2.4/5GHz serta peranan Switch & Router.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-emerald-900">
+                <span class="bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-300">LAN vs WAN</span>
+                <span class="bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-300">Sains WiFi</span>
+                <span class="bg-emerald-100 px-2.5 py-1 rounded-lg border border-emerald-300">Switch & Router</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul2')" class="mt-6 w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 2 Rangkaian</span> ➔
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="vibrant-card card-red p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-red-100 rounded-2xl border-2 border-red-400 text-red-700 shadow-sm">🛡️</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-red-600 text-white rounded-full uppercase shadow">Modul 3</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-red-600 transition">Keselamatan Siber & Pertahanan Digital</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Jejak digital, mengenali taktik Phishing, Smishing, Quishing, kata laluan kebal, dan Pengesahan 2 Langkah (2FA).
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-red-900">
+                <span class="bg-red-100 px-2.5 py-1 rounded-lg border border-red-300">Anti-Scam</span>
+                <span class="bg-red-100 px-2.5 py-1 rounded-lg border border-red-300">2FA & Password Lab</span>
+                <span class="bg-red-100 px-2.5 py-1 rounded-lg border border-red-300">HTTPS Security</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul3')" class="mt-6 w-full py-3 rounded-xl bg-red-600 hover:bg-red-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 3 Keselamatan</span> ➔
+            </button>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="vibrant-card card-purple p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-purple-100 rounded-2xl border-2 border-purple-400 text-purple-700 shadow-sm">📊</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-purple-600 text-white rounded-full uppercase shadow">Modul 4</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-purple-600 transition">Pakej Microsoft Office & Fungsinya</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Penerangan lengkap & fungsi Word, Excel, PowerPoint, Access, Outlook berserta contoh situasi kehidupan sebenar murid.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-purple-900">
+                <span class="bg-purple-100 px-2.5 py-1 rounded-lg border border-purple-300">Word & Styles</span>
+                <span class="bg-purple-100 px-2.5 py-1 rounded-lg border border-purple-300">Excel Formulas</span>
+                <span class="bg-purple-100 px-2.5 py-1 rounded-lg border border-purple-300">PowerPoint 6x6</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul4')" class="mt-6 w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 4 MS Office</span> ➔
+            </button>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="vibrant-card card-amber p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-amber-100 rounded-2xl border-2 border-amber-400 text-amber-700 shadow-sm">☁️</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-amber-600 text-white rounded-full uppercase shadow">Modul 5</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-amber-600 transition">Pengkomputeran Awan & Google Drive</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Tutorial langkah demi langkah: Cara muat naik fail/folder, susunatur Google Drive & cara kongsi link (Viewer vs Editor).
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-amber-900">
+                <span class="bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300">Upload Fail/Folder</span>
+                <span class="bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300">Share Link Control</span>
+                <span class="bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300">Live Co-Authoring</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul5')" class="mt-6 w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 5 Google Drive</span> ➔
+            </button>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="vibrant-card card-pink p-6 flex flex-col justify-between group bg-white">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 bg-pink-100 rounded-2xl border-2 border-pink-400 text-pink-700 shadow-sm">🤖</span>
+                <span class="text-xs font-black px-3.5 py-1 bg-pink-600 text-white rounded-full uppercase shadow">Modul 6</span>
+              </div>
+              <h4 class="text-lg font-black text-slate-900 group-hover:text-pink-600 transition">Kecerdasan Buatan (AI) & Prompting PdP</h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed font-semibold">
+                Konsep AI, apa itu 'Prompt', bagaimana AI membantu guru & murid dalam PdP, serta formula mencipta prompt Lego Burger.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-black text-pink-900">
+                <span class="bg-pink-100 px-2.5 py-1 rounded-lg border border-pink-300">Konsep Prompting</span>
+                <span class="bg-pink-100 px-2.5 py-1 rounded-lg border border-pink-300">Aplikasi PdP</span>
+                <span class="bg-pink-100 px-2.5 py-1 rounded-lg border border-pink-300">Lego Prompt Builder</span>
+              </div>
+            </div>
+            <button onclick="showSection('modul6')" class="mt-6 w-full py-3 rounded-xl bg-pink-600 hover:bg-pink-500 font-black text-xs text-white transition flex items-center justify-center gap-1.5 shadow-md">
+              <span>Buka Modul 6 Bersama Bit AI</span> ➔
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 1: ASAS TEKNOLOGI & PEMPROSESAN DATA -->
+    <!-- ========================================================================= -->
+    <section id="section-modul1" class="hidden space-y-8">
+      
+      <!-- Module Header with Milo Avatar -->
+      <div class="vibrant-card p-6 sm:p-8 bg-gradient-to-r from-sky-100 via-white to-sky-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full overflow-hidden character-frame-3d border-2 border-red-500 shadow-lg animate-float shrink-0">
+              <img src="assets/milo.jpg" alt="Milo 3D Guide" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-sky-600 px-3 py-1 rounded-md shadow-sm">MODUL 1</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Asas Teknologi Digital & Pemprosesan Data</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-sky-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">👦🏽</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-red-600">Milo:</strong> "Semua komputer di dunia memproses data melalui 4 peringkat IPO-S ini!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 1: Kitaran Pemprosesan IPO-S with High-Contrast Vivid Colors -->
+      <div class="vibrant-card p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-sky-700 flex items-center gap-2">
+            <span>🔄</span> Kitaran Pemprosesan Maklumat (IPO-S)
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Komputer mengikut kitaran 4 peringkat ini tanpa henti:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+          
+          <div class="bg-sky-50 border-3 border-sky-400 rounded-2xl p-5 shadow-md">
+            <div class="text-4xl mb-2">⌨️</div>
+            <div class="text-xs font-black text-white bg-sky-600 px-2 py-0.5 rounded-full uppercase inline-block mb-1">1. INPUT (Masukan)</div>
+            <h4 class="font-black text-slate-900 text-base my-1">Memasukkan Data</h4>
+            <p class="text-xs text-slate-700 font-semibold">Pengguna memasukkan data mentah melalui papan kekunci, tetikus, skrin sentuh, atau mikrofon.</p>
+            <div class="mt-3 text-xs bg-white text-sky-950 p-2.5 rounded-xl border-2 border-sky-300 text-left font-bold shadow-sm">
+              <strong>Contoh:</strong> Anda menaip nama "Ahmad" & markah ke dalam borang.
+            </div>
+          </div>
+
+          <div class="bg-purple-50 border-3 border-purple-400 rounded-2xl p-5 shadow-md">
+            <div class="text-4xl mb-2">🧠</div>
+            <div class="text-xs font-black text-white bg-purple-600 px-2 py-0.5 rounded-full uppercase inline-block mb-1">2. PROSES (Pemprosesan)</div>
+            <h4 class="font-black text-slate-900 text-base my-1">CPU Mengira & Menyusun</h4>
+            <p class="text-xs text-slate-700 font-semibold">Unit Pemprosesan Pusat (CPU) dan RAM memproses data mentah mengikut arahan perisian.</p>
+            <div class="mt-3 text-xs bg-white text-purple-950 p-2.5 rounded-xl border-2 border-purple-300 text-left font-bold shadow-sm">
+              <strong>Contoh:</strong> Komputer menyemak sama ada markah Ahmad layak Gred A.
+            </div>
+          </div>
+
+          <div class="bg-emerald-50 border-3 border-emerald-400 rounded-2xl p-5 shadow-md">
+            <div class="text-4xl mb-2">🖥️</div>
+            <div class="text-xs font-black text-white bg-emerald-600 px-2 py-0.5 rounded-full uppercase inline-block mb-1">3. OUTPUT (Keluaran)</div>
+            <h4 class="font-black text-slate-900 text-base my-1">Memaparkan Hasil</h4>
+            <p class="text-xs text-slate-700 font-semibold">Hasil maklumat yang bermakna dipaparkan pada skrin monitor atau dicetak atas kertas.</p>
+            <div class="mt-3 text-xs bg-white text-emerald-950 p-2.5 rounded-xl border-2 border-emerald-300 text-left font-bold shadow-sm">
+              <strong>Contoh:</strong> Skrin memaparkan "Tahniah Ahmad, Anda Lulus Gred A!".
+            </div>
+          </div>
+
+          <div class="bg-amber-50 border-3 border-amber-400 rounded-2xl p-5 shadow-md">
+            <div class="text-4xl mb-2">💾</div>
+            <div class="text-xs font-black text-white bg-amber-600 px-2 py-0.5 rounded-full uppercase inline-block mb-1">4. STORAN (Simpanan)</div>
+            <h4 class="font-black text-slate-900 text-base my-1">Menyimpan Kekal</h4>
+            <p class="text-xs text-slate-700 font-semibold">Data disimpan dalam SSD, Pendrive, atau Storan Awan (Cloud) untuk kegunaan masa depan.</p>
+            <div class="mt-3 text-xs bg-white text-amber-950 p-2.5 rounded-xl border-2 border-amber-300 text-left font-bold shadow-sm">
+              <strong>Contoh:</strong> Rekod markah disimpan dalam pangkalan data sekolah (SAPS).
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Content 2: Hardware vs Software with Solid Borders -->
+      <div class="vibrant-card p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-sky-700 flex items-center gap-2">
+            <span>🧩</span> Perkakasan (Hardware) vs Perisian (Software)
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Gabungan kedua-dua elemen ini membentuk satu sistem komputer yang lengkap.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-sky-50 border-3 border-sky-400 rounded-2xl p-6 space-y-3 shadow-md">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 bg-sky-600 text-white rounded-2xl shadow">🔌</span>
+              <div>
+                <h4 class="font-black text-slate-900 text-lg">Perkakasan (Hardware)</h4>
+                <p class="text-xs text-sky-900 font-bold">Komponen fizikal yang boleh dilihat, disentuh, dan dipegang.</p>
+              </div>
+            </div>
+            <ul class="text-xs text-slate-800 space-y-2 pt-2 font-semibold">
+              <li class="flex items-start gap-2">
+                <span class="text-sky-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Peranti Masukan:</strong> Papan kekunci, tetikus, pengimbas kod bar, mikrofon, kamera web.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Unit Pemprosesan:</strong> CPU (Otak komputer), GPU (Pemproses grafik), Motherboard.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Peranti Keluaran:</strong> Monitor, pencetak (printer), pembesar suara (speaker), projektor.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Peranti Storan:</strong> SSD (Solid State Drive), HDD, Flash Drive (Pendrive), Kad SD.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 border-3 border-purple-400 rounded-2xl p-6 space-y-3 shadow-md">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 bg-purple-600 text-white rounded-2xl shadow">💿</span>
+              <div>
+                <h4 class="font-black text-slate-900 text-lg">Perisian (Software)</h4>
+                <p class="text-xs text-purple-900 font-bold">Set arahan, program, dan kod digital yang tidak nyata.</p>
+              </div>
+            </div>
+            <ul class="text-xs text-slate-800 space-y-2 pt-2 font-semibold">
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Sistem Pengoperasian (OS):</strong> Windows 11, macOS, Linux, Android, iOS.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Perisian Aplikasi:</strong> Microsoft Word, Excel, PowerPoint, Google Chrome, Photoshop.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Perisian Utiliti:</strong> Antivirus (Windows Defender), perisian pembersihan cakera, WinRAR.</div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-black">•</span>
+                <div><strong class="text-slate-900 font-black">Bahasa Pengaturcaraan:</strong> Python, JavaScript, C++, HTML.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 3: Sistem Biner Interaktif -->
+      <div class="vibrant-card card-amber p-6 sm:p-8 space-y-6 bg-gradient-to-br from-amber-50 via-white to-yellow-50">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b-2 border-amber-300 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-amber-900 flex items-center gap-2">
+              <span>🔟</span> Bahasa Rahsia Komputer: Sistem Biner (0 & 1)
+            </h3>
+            <p class="text-xs text-slate-700 font-bold mt-1">Komputer hanya kenal suis elektrik <strong>HIDUP (1)</strong> atau <strong>MATI (0)</strong>.</p>
+          </div>
+          <span class="bg-amber-400 text-slate-950 font-black text-xs px-4 py-1.5 rounded-full uppercase shadow-md border border-amber-500">Simulasi Interaktif</span>
+        </div>
+
+        <div class="bg-white border-3 border-amber-400 rounded-2xl p-5 space-y-4 shadow-md">
+          <div class="flex flex-col sm:flex-row items-center gap-3">
+            <label for="binary-input" class="text-xs font-black text-slate-800 whitespace-nowrap">Taip Teks Anda:</label>
+            <input type="text" id="binary-input" value="SAYA SUKA AI" class="w-full bg-amber-50 border-2 border-amber-400 text-slate-950 font-black text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Taip apa-apa perkataan..." oninput="updateBinaryConverter()">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="bg-slate-950 text-white p-4 rounded-xl shadow-inner border-2 border-slate-800">
+              <div class="text-xs text-sky-400 font-black flex justify-between">
+                <span>Kod Biner (Bit 0 & 1):</span>
+                <span id="binary-byte-count" class="text-amber-400 font-mono">12 Bait</span>
+              </div>
+              <div id="binary-output" class="font-mono text-xs text-emerald-400 break-words mt-2 bg-slate-900 p-3 rounded-lg border border-slate-800 h-24 overflow-y-auto font-bold">
+                01010011 01000001 01011001 01000001 ...
+              </div>
+            </div>
+
+            <div class="bg-amber-100 p-4 rounded-xl border-2 border-amber-300 text-xs space-y-2 text-slate-800 font-bold">
+              <div class="font-black text-amber-950 text-sm">💡 Fakta Pantas Bit & Bait:</div>
+              <div>• <strong>1 Bit:</strong> Satu digit tunggal sama ada <code>0</code> atau <code>1</code>.</div>
+              <div>• <strong>1 Bait (Byte):</strong> Gabungan 8 Bit (cth: huruf 'A' = <code>01000001</code>).</div>
+              <div>• <strong>1 Kilobait (KB):</strong> 1,024 Bait | <strong>1 Megabait (MB):</strong> 1,024 KB.</div>
+              <div>• <strong>1 Gigabait (GB):</strong> 1,024 MB (Muat kira-kira 250 lagu MP3).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button onclick="awardXP(20, 'Menamatkan Modul 1 Asas Digital!'); showSection('modul2')" class="btn-3d-yellow px-7 py-3.5 rounded-2xl font-black text-slate-950 text-sm flex items-center gap-2 shadow-lg">
+            <span>Selesai Modul 1 & Terus ke Modul 2</span> ➔
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 2: RANGKAIAN KOMPUTER, LAN VS WAN & WIFI -->
+    <!-- ========================================================================= -->
+    <section id="section-modul2" class="hidden space-y-8">
+      
+      <!-- Module Header -->
+      <div class="vibrant-card card-emerald p-6 sm:p-8 bg-gradient-to-r from-emerald-100 via-white to-emerald-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-3xl shadow-lg border-2 border-emerald-400">
+              🌐
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-emerald-600 px-3 py-1 rounded-md shadow-sm">MODUL 2</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Rangkaian Komputer, LAN vs WAN & Sains WiFi</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-emerald-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">📡</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-emerald-700">Bit:</strong> "Gelombang WiFi 5 GHz sangat laju untuk video 4K, manakala 2.4 GHz lebih kuat tembus dinding rumah!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 1: LAN vs WAN -->
+      <div class="vibrant-card card-emerald p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-emerald-800 flex items-center gap-2">
+            <span>🔄</span> Perbezaan Terperinci: LAN vs WAN
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Dua jenis rangkaian utama yang menggerakkan dunia digital hari ini:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="bg-emerald-50 border-3 border-emerald-400 rounded-2xl p-6 space-y-4 shadow-md">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black px-3.5 py-1 bg-emerald-600 text-white rounded-full uppercase shadow">Kawasan Setempat</span>
+              <span class="text-3xl">🏫</span>
+            </div>
+            <h4 class="text-xl font-black text-slate-900">LAN (Local Area Network)</h4>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              Rangkaian kawasan setempat yang menghubungkan peranti dalam lingkungan geografi yang kecil dan terhad seperti dalam satu bilik, sebuah rumah, atau satu bangunan sekolah.
+            </p>
+            
+            <div class="space-y-2 text-xs text-slate-800 pt-2 border-t-2 border-emerald-200 font-bold">
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-700 font-black">📍 Liputan:</span> 10 meter hingga 1 kilometer.
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-700 font-black">⚡ Kelajuan:</span> Sangat laju (100 Mbps hingga 10 Gbps) kerana jarak dekat.
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-700 font-black">🏢 Pemilikan:</span> Dimiliki & diuruskan secara peribadi (cth: Guru Makmal Komputer).
+              </div>
+            </div>
+
+            <div class="bg-white border-2 border-emerald-400 p-3 rounded-xl text-xs text-emerald-950 font-bold shadow-sm">
+              <strong>Contoh Nyata:</strong> 40 buah komputer di Makmal Komputer Sekolah berkongsi satu pencetak (*printer*) laser yang sama tanpa perlu internet luar.
+            </div>
+          </div>
+
+          <div class="bg-sky-50 border-3 border-sky-400 rounded-2xl p-6 space-y-4 shadow-md">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black px-3.5 py-1 bg-sky-600 text-white rounded-full uppercase shadow">Kawasan Luas / Global</span>
+              <span class="text-3xl">🌍</span>
+            </div>
+            <h4 class="text-xl font-black text-slate-900">WAN (Wide Area Network)</h4>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              Rangkaian kawasan luas yang menghubungkan pelbagai rangkaian LAN merentasi bandar, negeri, seluruh negara, bahkan seluruh planet bumi.
+            </p>
+            
+            <div class="space-y-2 text-xs text-slate-800 pt-2 border-t-2 border-sky-200 font-bold">
+              <div class="flex items-center gap-2">
+                <span class="text-sky-700 font-black">📍 Liputan:</span> Beratus hingga beribu-ribu kilometer (Global).
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sky-700 font-black">⚡ Kelajuan:</span> Bergantung kepada pakej jalur lebar ISP (TM, CelcomDigi, Maxis).
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sky-700 font-black">🔌 Media:</span> Kabel gentian optik dasar laut (*fiber optic*), gelombang mikro & satelit.
+              </div>
+            </div>
+
+            <div class="bg-white border-2 border-sky-400 p-3 rounded-xl text-xs text-sky-950 font-bold shadow-sm">
+              <strong>Contoh Nyata:</strong> <strong>Internet</strong> itu sendiri ialah WAN terbesar di dunia! Juga sistem rangkaian perbankan ATM seluruh negara.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Content 2: Bagaimana WiFi Berfungsi -->
+      <div class="vibrant-card card-emerald p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-emerald-800 flex items-center gap-2">
+            <span>📡</span> Sains di Sebalik WiFi: Bagaimana Gelombang Radio Menghantar Internet?
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Pernahkah anda terfikir bagaimana video YouTube di telefon anda boleh dimainkan tanpa sebarang kabel bersambung?</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-5 space-y-2 shadow-sm">
+            <div class="text-3xl">📻</div>
+            <h4 class="font-black text-slate-900 text-base">1. Gelombang Radio Elektromagnet</h4>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              WiFi (*Wireless Fidelity*) menggunakan gelombang radio elektromagnet pada frekuensi <strong>2.4 GHz</strong> dan <strong>5 GHz</strong>.
+            </p>
+          </div>
+
+          <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-5 space-y-2 shadow-sm">
+            <div class="text-3xl">🔄</div>
+            <h4 class="font-black text-slate-900 text-base">2. Modulasi Isyarat Digital</h4>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              Router menukar data bit biner (0 & 1) menjadi isyarat gelombang radio. Antena telefon menukarkannya kembali menjadi kod biner untuk paparkan gambar/video.
+            </p>
+          </div>
+
+          <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-5 space-y-2 shadow-sm">
+            <div class="text-3xl">📶</div>
+            <h4 class="font-black text-slate-900 text-base">3. Frekuensi 2.4 GHz vs 5 GHz</h4>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              • <strong>2.4 GHz:</strong> Liputan jarak jauh, tembus dinding.<br>
+              • <strong>5 GHz:</strong> Sangat laju, jarak dekat, sukar tembus konkrit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step-by-Step WiFi Connection -->
+        <div class="bg-emerald-100 border-3 border-emerald-400 rounded-2xl p-6 space-y-4 shadow-md">
+          <h4 class="font-black text-emerald-950 text-base flex items-center gap-2">
+            <span>📲</span> Langkah Demi Langkah Menyambung Peranti ke Rangkaian WiFi:
+          </h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+            <div class="bg-white p-4 rounded-xl border-2 border-emerald-300 shadow-sm font-bold">
+              <span class="w-7 h-7 bg-emerald-600 text-white rounded-full font-black flex items-center justify-center mb-2 text-sm shadow">1</span>
+              <strong class="text-slate-950 block mb-1">Buka Tetapan WiFi</strong>
+              Buka menu *Settings* dan pastikan suis WiFi dihidupkan (ON).
+            </div>
+            <div class="bg-white p-4 rounded-xl border-2 border-emerald-300 shadow-sm font-bold">
+              <span class="w-7 h-7 bg-emerald-600 text-white rounded-full font-black flex items-center justify-center mb-2 text-sm shadow">2</span>
+              <strong class="text-slate-950 block mb-1">Cari Nama SSID</strong>
+              Pilih nama rangkaian (SSID) yang betul (Cth: <code>SMK_BESTARI_WIFI</code>).
+            </div>
+            <div class="bg-white p-4 rounded-xl border-2 border-emerald-300 shadow-sm font-bold">
+              <span class="w-7 h-7 bg-emerald-600 text-white rounded-full font-black flex items-center justify-center mb-2 text-sm shadow">3</span>
+              <strong class="text-slate-950 block mb-1">Masukkan Kata Laluan</strong>
+              Taip kata laluan keselamatan WPA2/WPA3 yang sah dan tekan *Connect*.
+            </div>
+            <div class="bg-white p-4 rounded-xl border-2 border-emerald-300 shadow-sm font-bold">
+              <span class="w-7 h-7 bg-emerald-600 text-white rounded-full font-black flex items-center justify-center mb-2 text-sm shadow">4</span>
+              <strong class="text-slate-950 block mb-1">Dapat IP Address (DHCP)</strong>
+              Router memberikan alamat IP unik (cth: <code>192.168.1.15</code>) kepada peranti anda.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button onclick="showSection('modul1')" class="px-5 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-800">
+          ⬅ Modul 1
+        </button>
+        <button onclick="awardXP(20, 'Menamatkan Modul 2 Rangkaian!'); showSection('modul3')" class="btn-3d-yellow px-7 py-3.5 rounded-2xl font-black text-slate-950 text-sm flex items-center gap-2 shadow-lg">
+          <span>Selesai Modul 2 & Terus ke Modul 3</span> ➔
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 3: KESELAMATAN SIBER & PERTAHANAN DIGITAL -->
+    <!-- ========================================================================= -->
+    <section id="section-modul3" class="hidden space-y-8">
+      
+      <!-- Module Header -->
+      <div class="vibrant-card card-red p-6 sm:p-8 bg-gradient-to-r from-red-100 via-white to-red-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-red-600 text-white flex items-center justify-center text-3xl shadow-lg border-2 border-red-400">
+              🛡️
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-red-600 px-3 py-1 rounded-md shadow-sm">MODUL 3</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Keselamatan Siber & Pertahanan Identiti Digital</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-red-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">🚨</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-red-600">Peringatan:</strong> "Scammer suka cipta rasa panik. Jangan sekali-kali klik pautan emel mencurigakan!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 1: Jejak Digital -->
+      <div class="vibrant-card card-red p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-red-800 flex items-center gap-2">
+            <span>👣</span> Jejak Digital: Apa yang Anda Buat Kekal Selamanya!
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Setiap klik, like, komen, gambar yang dimuat naik, dan laman web yang dilayari meninggalkan jejak digital.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-amber-50 border-3 border-amber-400 rounded-2xl p-5 space-y-2 shadow-sm font-semibold">
+            <h4 class="font-black text-amber-950 text-base">1. Jejak Digital Aktif</h4>
+            <p class="text-xs text-slate-800 leading-relaxed">
+              Jejak yang anda tinggalkan dengan sengaja dan sedar. Contohnya memuat naik video di TikTok, menghantar komen di Instagram, atau mengisi borang pendaftaran atas talian.
+            </p>
+          </div>
+          <div class="bg-sky-50 border-3 border-sky-400 rounded-2xl p-5 space-y-2 shadow-sm font-semibold">
+            <h4 class="font-black text-sky-950 text-base">2. Jejak Digital Pasif</h4>
+            <p class="text-xs text-slate-800 leading-relaxed">
+              Jejak yang direkodkan di sebalik tabir tanpa anda sedari. Contohnya rekod carian Google, lokasi GPS telefon anda, alamat IP, dan sejarah video yang anda tonton.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 2: Taktik Scammer -->
+      <div class="vibrant-card card-red p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-red-800 flex items-center gap-2">
+            <span>🎭</span> Kejuruteraan Sosial: 4 Jenis Tipu Helah Utama Scammer
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Scammer memanipulasi emosi mangsa (Takut, Tamak, Panik) untuk mencuri kata laluan atau wang:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="bg-white p-4 rounded-2xl border-3 border-red-400 space-y-2 shadow-md">
+            <div class="text-3xl">📧</div>
+            <h4 class="font-black text-slate-900 text-sm">Phishing (Emel Palsu)</h4>
+            <p class="text-slate-700 font-semibold">Menghantar emel kononnya daripada pihak rasmi meminta anda klik pautan palsu untuk 'kemaskini kata laluan'.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-amber-400 space-y-2 shadow-md">
+            <div class="text-3xl">💬</div>
+            <h4 class="font-black text-slate-900 text-sm">Smishing (SMS Scam)</h4>
+            <p class="text-slate-700 font-semibold">Mesej SMS mendakwa anda memenangi cabutan bertuah RM5,000 atau parcel pos tersekat dengan pautan bahaya.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-purple-400 space-y-2 shadow-md">
+            <div class="text-3xl">📞</div>
+            <h4 class="font-black text-slate-900 text-sm">Vishing (Panggilan Suara)</h4>
+            <p class="text-slate-700 font-semibold">Panggilan telefon kononnya daripada 'Polis' atau 'LHDN' mendakwa akaun anda terlibat jenayah (Macau Scam).</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-sky-400 space-y-2 shadow-md">
+            <div class="text-3xl">🔳</div>
+            <h4 class="font-black text-slate-900 text-sm">Quishing (QR Code Palsu)</h4>
+            <p class="text-slate-700 font-semibold">Scammer menampal pelekat QR code palsu di atas QR code kedai untuk membawa mangsa ke laman pancingan data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 3: Password Strength Lab -->
+      <div class="vibrant-card card-red p-6 sm:p-8 space-y-6 bg-gradient-to-br from-red-50 via-white to-amber-50">
+        <div class="border-b-2 border-red-200 pb-4">
+          <h3 class="text-2xl font-black text-red-900 flex items-center gap-2">
+            <span>🔐</span> Makmal Ujian Kekuatan Kata Laluan & 2FA
+          </h3>
+          <p class="text-xs text-slate-700 font-bold mt-1">Uji seberapa pantas komputer penggodam boleh memecahkan kata laluan anda!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div class="space-y-4">
+            <div>
+              <label for="pwd-tester" class="text-xs font-black text-slate-900 block mb-1">Cuba Masukkan Contoh Kata Laluan:</label>
+              <input type="text" id="pwd-tester" value="Sekolah123!" class="w-full bg-white border-3 border-slate-400 text-slate-950 font-mono font-bold text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 shadow-sm" oninput="testPasswordStrength()">
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs font-black">
+                <span class="text-slate-800">Tahap Kekuatan:</span>
+                <span id="pwd-strength-label" class="text-amber-700">Sederhana</span>
+              </div>
+              <div class="w-full bg-slate-200 h-4 rounded-full overflow-hidden p-0.5 border-2 border-slate-300">
+                <div id="pwd-strength-bar" class="bg-amber-500 h-full rounded-full transition-all duration-300" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div id="pwd-crack-time" class="bg-white p-4 rounded-xl border-2 border-slate-300 text-xs text-slate-800 font-bold shadow-sm">
+              ⏱️ Anggaran masa untuk dipecahkan: <strong class="text-emerald-700 font-black">~ 3 Bulan</strong>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-3 border-red-300 text-xs space-y-2 text-slate-800 shadow-md font-bold">
+            <div class="font-black text-red-900 text-sm mb-1">🛡️ Formula Kata Laluan Kebal:</div>
+            <div>✅ <strong>Minimum 12 Aksara</strong>.</div>
+            <div>✅ Gabungan <strong>Huruf Besar</strong> & <strong>Huruf Kecil</strong>.</div>
+            <div>✅ Mengandungi <strong>Nombor</strong> & <strong>Simbol Khas</strong> (@, #, $, !).</div>
+            <div>✅ <strong>Aktifkan 2FA (Two-Factor Authentication)</strong>.</div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-4">
+          <button onclick="showSection('modul2')" class="px-5 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-800">
+            ⬅ Modul 2
+          </button>
+          <button onclick="awardXP(20, 'Menamatkan Modul 3 Keselamatan Siber!'); showSection('modul4')" class="btn-3d-yellow px-7 py-3.5 rounded-2xl font-black text-slate-950 text-sm flex items-center gap-2 shadow-lg">
+            <span>Selesai Modul 3 & Terus ke Modul 4</span> ➔
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 4: PAKEJ MICROSOFT OFFICE & FUNGSINYA -->
+    <!-- ========================================================================= -->
+    <section id="section-modul4" class="hidden space-y-8">
+      
+      <!-- Module Header -->
+      <div class="vibrant-card card-purple p-6 sm:p-8 bg-gradient-to-r from-purple-100 via-white to-purple-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-3xl shadow-lg border-2 border-purple-400">
+              📊
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-purple-600 px-3 py-1 rounded-md shadow-sm">MODUL 4</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Pakej Microsoft Office & Fungsinya dalam Kehidupan Sebenar</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-purple-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">📝</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-purple-700">Milo:</strong> "Guna PowerPoint? Amalkan Peraturan 6x6 — maksimum 6 baris ayat, 6 perkataan sebaris!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Main Microsoft Office Applications Detailed Breakdown -->
+      <div class="space-y-6">
+        
+        <!-- 1. Microsoft Word -->
+        <div class="vibrant-card p-6 sm:p-8 border-3 border-blue-400 space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl font-black shadow-lg">W</span>
+              <div>
+                <h3 class="text-xl font-black text-slate-900">1. Microsoft Word (Pemprosesan Dokumen Teks)</h3>
+                <span class="text-xs text-blue-700 font-black">Format fail: <code>.docx</code></span>
+              </div>
+            </div>
+            <span class="bg-blue-600 text-white text-xs px-4 py-1.5 rounded-full font-black shadow">Paling Kerap Digunakan</span>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-800 font-semibold">
+            <div class="space-y-2">
+              <strong class="text-slate-900 text-sm font-black block">📌 Fungsi Utama:</strong>
+              <p class="leading-relaxed">Mencipta, menyunting, memformat, dan mencetak dokumen bertulis dengan susun atur profesional seperti surat rasmi, laporan projek, resume, dan buku skrap.</p>
+              <div class="pt-2 space-y-1">
+                <div>• <strong>Styles & Heading:</strong> Menjana Jadual Kandungan (*Table of Contents*) secara automatik.</div>
+                <div>• <strong>Header & Footer:</strong> Memasukkan nombor muka surat dan tajuk dokumen di setiap halaman.</div>
+                <div>• <strong>Mail Merge:</strong> Mencetak ratusan surat jemputan dengan nama berbeza secara serentak.</div>
+              </div>
+            </div>
+
+            <div class="bg-blue-50 border-2 border-blue-300 p-4 rounded-2xl space-y-2 shadow-sm">
+              <strong class="text-blue-950 text-sm font-black block">🏫 Contoh Situasi Nyata di Sekolah:</strong>
+              <p>Sebagai Setiausaha Persatuan Sains, anda perlu menyediakan <strong>Surat Permohonan Lawatan ke Pusat Sains Negara</strong> untuk ditandatangani oleh Pengetua dan diedarkan kepada ibu bapa.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Microsoft Excel -->
+        <div class="vibrant-card card-emerald p-6 sm:p-8 border-3 border-emerald-400 space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-14 h-14 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-3xl font-black shadow-lg">X</span>
+              <div>
+                <h3 class="text-xl font-black text-slate-900">2. Microsoft Excel (Hamparan Elektronik & Pengiraan Data)</h3>
+                <span class="text-xs text-emerald-700 font-black">Format fail: <code>.xlsx</code></span>
+              </div>
+            </div>
+            <span class="bg-emerald-600 text-white text-xs px-4 py-1.5 rounded-full font-black shadow">Kalkulator Dinamik & Graf</span>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-800 font-semibold">
+            <div class="space-y-2">
+              <strong class="text-slate-900 text-sm font-black block">📌 Fungsi Utama:</strong>
+              <p class="leading-relaxed">Menyusun data dalam bentuk baris (*Rows*) dan lajur (*Columns*), membuat pengiraan formula automatik, dan menukar nombor mentah kepada graf bar dan carta pai visual.</p>
+              <div class="pt-2 space-y-1">
+                <div>• <code>=SUM(A1:A10)</code>: Menjumlahkan semua nombor dalam sel dipilih.</div>
+                <div>• <code>=AVERAGE(B1:B10)</code>: Mengira markah purata secara tepat.</div>
+                <div>• <code>=IF(C2>=40, "LULUS", "GAGAL")</code>: Membuat keputusan logik automatik.</div>
+              </div>
+            </div>
+
+            <div class="bg-emerald-50 border-2 border-emerald-300 p-4 rounded-2xl space-y-2 shadow-sm">
+              <strong class="text-emerald-950 text-sm font-black block">🏫 Contoh Situasi Nyata di Sekolah:</strong>
+              <p>Guru Sukan memasukkan markah acara larian Rumah Merah, Biru, dan Kuning. Excel secara automatik menjumlahkan markah dan menjana <strong>Graf Kedudukan Juara Sukan Tahunan</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Microsoft PowerPoint -->
+        <div class="vibrant-card card-amber p-6 sm:p-8 border-3 border-orange-400 space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-14 h-14 bg-orange-600 rounded-2xl flex items-center justify-center text-white text-3xl font-black shadow-lg">P</span>
+              <div>
+                <h3 class="text-xl font-black text-slate-900">3. Microsoft PowerPoint (Persembahan Multimedia & Slaid)</h3>
+                <span class="text-xs text-orange-700 font-black">Format fail: <code>.pptx</code></span>
+              </div>
+            </div>
+            <span class="bg-orange-600 text-white text-xs px-4 py-1.5 rounded-full font-black shadow">Visual & Pembentangan</span>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-800 font-semibold">
+            <div class="space-y-2">
+              <strong class="text-slate-900 text-sm font-black block">📌 Fungsi Utama:</strong>
+              <p class="leading-relaxed">Mencipta slaid persembahan bergambar, video, teks bertitik, dan animasi untuk membentangkan idea atau projek di hadapan penonton secara menarik.</p>
+              <div class="pt-2 space-y-1">
+                <div>• <strong>Peraturan 6×6:</strong> Maksimum 6 baris ayat setiap slaid, 6 patah perkataan sebaris.</div>
+                <div>• <strong>Slide Transitions:</strong> Kesan peralihan visual antara slaid.</div>
+                <div>• <strong>Presenter View:</strong> Guru/murid membaca nota peribadi di skrin laptop.</div>
+              </div>
+            </div>
+
+            <div class="bg-orange-50 border-2 border-orange-300 p-4 rounded-2xl space-y-2 shadow-sm">
+              <strong class="text-orange-950 text-sm font-black block">🏫 Contoh Situasi Nyata di Sekolah:</strong>
+              <p>Kumpulan anda membuat pembentangan tugasan Sains bertajuk <em>"Sistem Suria & Penerokaan Angkasa Lepas"</em> menggunakan slaid infografik dan animasi planet berputar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Microsoft Access & Outlook -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="vibrant-card card-red p-6 border-3 border-red-400 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow">A</span>
+              <div>
+                <h4 class="font-black text-slate-900 text-base">Microsoft Access (Pangkalan Data)</h4>
+                <span class="text-xs text-red-700 font-bold">Database Management System (DBMS)</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              Digunakan untuk menyimpan, menstruktur, dan menghubungkan jutaan rekod maklumat yang besar dan kompleks menggunakan jadual (*Tables*), borang (*Forms*), dan carian (*Queries*).
+            </p>
+            <div class="bg-red-50 p-3 rounded-xl border-2 border-red-200 text-xs text-red-950 font-bold shadow-sm">
+              <strong>Contoh Sekolah:</strong> Sistem Pangkalan Data Perpustakaan untuk merekod 10,000 buah buku, tarikh pinjaman, dan nama murid yang meminjam.
+            </div>
+          </div>
+
+          <div class="vibrant-card p-6 border-3 border-sky-400 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-12 h-12 bg-sky-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow">O</span>
+              <div>
+                <h4 class="font-black text-slate-900 text-base">Microsoft Outlook & Teams (Komunikasi)</h4>
+                <span class="text-xs text-sky-700 font-bold">Emel, Kalendar & Mesyuarat Maya</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              Menguruskan surat-menyurat digital (emel rasmi), menetapkan jadual peperiksaan dalam kalendar, dan mengadakan kelas dalam talian melalui panggilan video bersepadu.
+            </p>
+            <div class="bg-sky-50 p-3 rounded-xl border-2 border-sky-200 text-xs text-sky-950 font-bold shadow-sm">
+              <strong>Contoh Sekolah:</strong> Menghantar emel rasmi jemputan penceramah motivasi dan menyertai kelas tuisyen secara maya sewaktu cuti sekolah.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button onclick="showSection('modul3')" class="px-5 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-800">
+          ⬅ Modul 3
+        </button>
+        <button onclick="awardXP(20, 'Menamatkan Modul 4 MS Office!'); showSection('modul5')" class="btn-3d-yellow px-7 py-3.5 rounded-2xl font-black text-slate-950 text-sm flex items-center gap-2 shadow-lg">
+          <span>Selesai Modul 4 & Terus ke Modul 5 (Google Drive)</span> ➔
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 5: PENGKOMPUTERAN AWAN & GOOGLE DRIVE TUTORIAL -->
+    <!-- ========================================================================= -->
+    <section id="section-modul5" class="hidden space-y-8">
+      
+      <!-- Module Header -->
+      <div class="vibrant-card card-amber p-6 sm:p-8 bg-gradient-to-r from-amber-100 via-white to-amber-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-3xl shadow-lg border-2 border-amber-400 font-black">
+              ☁️
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-amber-600 px-3 py-1 rounded-md shadow-sm">MODUL 5</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Storan Awan (Cloud Storage) & Panduan Google Drive</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-amber-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">🔗</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-amber-800">Tips Drive:</strong> "Bila share link Google Drive, set 'Viewer' jika hanya untuk bacaan kawan-kawan!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tutorial Step 1 to 4: Google Drive Mastery -->
+      <div class="vibrant-card card-amber p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-amber-900 flex items-center gap-2">
+            <span>📁</span> Panduan Praktikal: Bagaimana Menggunakan Google Drive Seperti Pakar
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Ikuti 3 langkah mudah ini untuk menguruskan fail sekolah anda:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-amber-50 p-5 rounded-2xl border-3 border-amber-400 space-y-3 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 font-black flex items-center justify-center text-base shadow">1</span>
+              <h4 class="font-black text-slate-900 text-base">Buka Drive & Buat Folder Baharu</h4>
+            </div>
+            <p class="text-xs text-slate-800 font-semibold leading-relaxed">
+              1. Layari <code>drive.google.com</code> dan log masuk menggunakan akaun emel sekolah (DELIMa) atau Gmail peribadi anda.<br>
+              2. Klik butang besar <strong class="text-amber-800">+ New (+ Baharu)</strong> di bahagian atas kiri.<br>
+              3. Pilih <strong>New folder (Folder baharu)</strong>, namakan folder tersebut (cth: <code>Projek Sains Tingkatan 3</code>) dan klik <em>Create</em>.
+            </p>
+          </div>
+
+          <div class="bg-amber-50 p-5 rounded-2xl border-3 border-amber-400 space-y-3 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 font-black flex items-center justify-center text-base shadow">2</span>
+              <h4 class="font-black text-slate-900 text-base">Cara Muat Naik (Upload) Fail / Folder</h4>
+            </div>
+            <p class="text-xs text-slate-800 font-semibold leading-relaxed">
+              <strong>Kaedah A (Paling Mudah):</strong> Tarik & Lepas (*Drag and Drop*) fail atau gambar dari desktop komputer anda terus ke dalam tetingkap Google Drive.<br>
+              <strong>Kaedah B:</strong> Klik <strong>+ New ➔ File upload</strong> atau <strong>Folder upload</strong>, cari fail yang ingin dimuat naik, dan tekan <em>Open</em>.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border-3 border-amber-400 space-y-3 md:col-span-2 shadow-md">
+            <div class="flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-amber-500 text-slate-950 font-black flex items-center justify-center text-base shadow">3</span>
+              <h4 class="font-black text-slate-900 text-base">Cara Kongsi Pautan (Share Link) & Kawalan Hak Akses</h4>
+            </div>
+            <p class="text-xs text-slate-800 font-semibold leading-relaxed">
+              Klik kanan pada fail atau folder yang ingin dikongsi, kemudian pilih <strong>Share (Kongsi) ➔ Share</strong>. Anda perlu memilih 2 tetapan keselamatan penting:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-sky-50 p-4 rounded-xl border-2 border-sky-300 shadow-sm font-semibold">
+                <div class="text-xs font-black text-sky-900 mb-1">A. Akses Am (General Access):</div>
+                <ul class="text-xs text-slate-700 space-y-1">
+                  <li>• <strong>Restricted (Terhad):</strong> Hanya orang yang emelnya ditambah secara khusus sahaja boleh buka.</li>
+                  <li>• <strong>Anyone with the link:</strong> Sesiapa sahaja di dunia yang mempunyai link boleh membuka fail tersebut.</li>
+                </ul>
+              </div>
+
+              <div class="bg-emerald-50 p-4 rounded-xl border-2 border-emerald-300 shadow-sm font-semibold">
+                <div class="text-xs font-black text-emerald-900 mb-1">B. Peranan / Kebenaran (Permission Role):</div>
+                <ul class="text-xs text-slate-700 space-y-1">
+                  <li>• <strong>Viewer (Pelihat):</strong> Hanya boleh baca & download.</li>
+                  <li>• <strong>Commenter (Pengulas):</strong> Boleh tinggalkan nota teguran di tepi perenggan.</li>
+                  <li>• <strong>Editor (Penyunting):</strong> Boleh menyunting dokumen serentak bersama anda!</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pt-2 text-xs text-amber-950 font-black flex items-center gap-2">
+              <span>🔗</span> Akhir sekali, klik butang <strong>Copy link (Salin pautan)</strong> dan hantar link tersebut kepada guru atau rakan sekumpulan anda melalui WhatsApp/Telegram!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button onclick="showSection('modul4')" class="px-5 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-800">
+          ⬅ Modul 4
+        </button>
+        <button onclick="awardXP(20, 'Menamatkan Modul 5 Storan Awan!'); showSection('modul6')" class="btn-3d-yellow px-7 py-3.5 rounded-2xl font-black text-slate-950 text-sm flex items-center gap-2 shadow-lg">
+          <span>Selesai Modul 5 & Terus ke Modul 6 (AI)</span> ➔
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODUL 6: KECERDASAN BUATAN (AI) & KUASA PROMPTING UNTUK PDP -->
+    <!-- ========================================================================= -->
+    <section id="section-modul6" class="hidden space-y-8">
+      
+      <!-- Module Header with Bit 3D Avatar -->
+      <div class="vibrant-card card-pink p-6 sm:p-8 bg-gradient-to-r from-pink-100 via-white to-pink-50">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-2xl overflow-hidden character-frame-3d border-2 border-sky-500 shadow-lg animate-robot shrink-0">
+              <img src="assets/bit.jpg" alt="Bit 3D Avatar" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <span class="text-xs font-black text-white uppercase tracking-widest bg-pink-600 px-3 py-1 rounded-md shadow-sm">MODUL 6</span>
+              <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Kecerdasan Buatan (AI) & Seni Prompting untuk PdP</h2>
+            </div>
+          </div>
+
+          <div class="bg-white border-3 border-pink-400 p-3.5 rounded-2xl flex items-center gap-3 shadow-md max-w-sm">
+            <span class="text-2xl">🤖</span>
+            <div class="text-xs text-slate-800 font-bold">
+              <strong class="text-pink-600">Bit AI:</strong> "Kunci jawapan AI yang hebat ialah Prompt yang lengkap dengan Peranan + Tugas + Format!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 1: Apa itu Prompt with High Contrast Colors -->
+      <div class="vibrant-card card-pink p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-pink-700 flex items-center gap-2">
+            <span>💬</span> Apa Sebenarnya "Prompt" Itu?
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Bayangkan AI seperti pelayan genius di restoran — jika anda pesan 'makanan', anda dapat bubur kosong! Anda perlu pesan dengan tepat.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-pink-50 p-5 rounded-2xl border-3 border-pink-400 space-y-2 shadow-sm font-semibold">
+            <h4 class="font-black text-slate-900 text-base">Definisi Prompt:</h4>
+            <p class="text-xs text-slate-800 leading-relaxed">
+              <strong>Prompt</strong> ialah teks arahan, soalan, atau input konteks yang dimasukkan oleh manusia ke dalam model AI (seperti ChatGPT, Gemini, atau Claude) untuk memandu AI menjana jawapan atau hasil karya yang tepat mengikut kehendak kita.
+            </p>
+          </div>
+
+          <div class="bg-amber-50 p-5 rounded-2xl border-3 border-amber-400 space-y-2 shadow-sm font-semibold">
+            <h4 class="font-black text-amber-950 text-base">Prinsip GIGO (Garbage In, Garbage Out):</h4>
+            <p class="text-xs text-slate-800 leading-relaxed">
+              Jika anda masukkan prompt yang malas dan kabur (*"Tulis karangan"*), AI akan menghasilkan jawapan yang hambar. Tetapi jika prompt anda jelas dan berstruktur, AI akan menghasilkan kualiti luar biasa!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 2: 5 Bantuan PdP AI with High-Saturation Badges -->
+      <div class="vibrant-card card-pink p-6 sm:p-8 space-y-6">
+        <div class="border-b-2 border-slate-200 pb-4">
+          <h3 class="text-2xl font-black text-slate-900 flex items-center gap-2">
+            <span>🎓</span> 5 Perkara Hebat AI Boleh Buat untuk Membantu PdP:
+          </h3>
+          <p class="text-xs text-slate-600 font-bold mt-1">Contoh praktikal bagaimana guru dan murid memanfaatkan AI setiap hari:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-semibold">
+          <div class="bg-white p-4 rounded-2xl border-3 border-pink-400 space-y-2 shadow-md">
+            <div class="text-3xl">📖</div>
+            <h4 class="font-black text-slate-900 text-sm">1. Ringkasan Nota & Peta Minda</h4>
+            <p class="text-slate-700">Menukarkan petikan buku teks Sejarah yang panjang 5 muka surat menjadi 5 poin penting berbentuk jadual atau peta konsep yang senang dihafal.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-sky-400 space-y-2 shadow-md">
+            <div class="text-3xl">📝</div>
+            <h4 class="font-black text-slate-900 text-sm">2. Menjana Soalan Kuiz & Latihan</h4>
+            <p class="text-slate-700">Guru boleh meminta AI menjana 10 soalan aneka pilihan (MCQ) topik <em>Fotosintesis</em> berserta skema jawapan dan penerangan logik dalam masa 3 saat.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-emerald-400 space-y-2 shadow-md">
+            <div class="text-3xl">👨‍🏫</div>
+            <h4 class="font-black text-slate-900 text-sm">3. Tutor Peribadi 24 Jam</h4>
+            <p class="text-slate-700">Murid boleh meminta AI: <em>"Terangkan hukum Newton Ketiga kepada saya dengan analogi permainan bola sepak atau basikal."</em></p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-purple-400 space-y-2 shadow-md">
+            <div class="text-3xl">✍️</div>
+            <h4 class="font-black text-slate-900 text-sm">4. Semakan Tatabahasa & Kosa Kata</h4>
+            <p class="text-slate-700">Membantu menyemak ejaan karangan Bahasa Melayu/Inggeris dan mencadangkan perkataan berimpak tinggi (*high-level vocabulary*).</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border-3 border-amber-400 space-y-2 shadow-md">
+            <div class="text-3xl">💡</div>
+            <h4 class="font-black text-slate-900 text-sm">5. Penjana Idea Projek Reka Cipta</h4>
+            <p class="text-slate-700">Mencetuskan idea inovasi STEM untuk pertandingan sekolah berasaskan bahan kitar semula dan mikropengawal Arduino.</p>
+          </div>
+
+          <div class="bg-red-50 p-4 rounded-2xl border-3 border-red-400 space-y-2 shadow-md">
+            <div class="text-3xl">⚠️</div>
+            <h4 class="font-black text-red-900 text-sm">Peringatan: Halusinasi AI!</h4>
+            <p class="text-slate-800">AI kadangkala boleh mereka-reka fakta palsu yang meyakinkan. Murid sentiasa perlu menyemak silang (*cross-check*) dengan buku teks rasmi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content 3: Formula Prompt Lego Burger -->
+      <div class="vibrant-card card-amber p-6 sm:p-8 space-y-6 bg-gradient-to-br from-amber-50 via-white to-yellow-50">
+        <div class="border-b-2 border-amber-300 pb-4">
+          <h3 class="text-2xl font-black text-amber-900 flex items-center gap-2">
+            <span>🍔</span> Formula Rahsia: Prompt Lego Burger 4 Lapisan
+          </h3>
+          <p class="text-xs text-slate-700 font-bold mt-1">Gunakan formula 4 blok ini untuk menghasilkan jawapan AI yang paling berkualiti:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-semibold">
+          <div class="bg-white p-4 rounded-xl border-3 border-amber-400 shadow-md">
+            <div class="text-xs font-black text-amber-800 uppercase mb-1">Roti Atas: PERANAN</div>
+            <strong class="text-slate-950 block mb-1">Siapa AI?</strong>
+            <p class="text-slate-700">"Bertindak sebagai Guru Sains Cemerlang yang pakar mengajar murid Tingkatan 2."</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border-3 border-red-400 shadow-md">
+            <div class="text-xs font-black text-red-800 uppercase mb-1">Daging Burger: TUGAS</div>
+            <strong class="text-slate-950 block mb-1">Apa yang dibuat?</strong>
+            <p class="text-slate-700">"Bina 3 soalan KBAT tentang proses peredaran darah manusia."</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border-3 border-emerald-400 shadow-md">
+            <div class="text-xs font-black text-emerald-800 uppercase mb-1">Sayur / Keju: KONTEKS</div>
+            <strong class="text-slate-950 block mb-1">Sasaran & had?</strong>
+            <p class="text-slate-700">"Gunakan situasi atlet sukan marathon yang sedang berlari."</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border-3 border-sky-400 shadow-md">
+            <div class="text-xs font-black text-sky-800 uppercase mb-1">Roti Bawah: FORMAT</div>
+            <strong class="text-slate-950 block mb-1">Bentuk output?</strong>
+            <p class="text-slate-700">"Paparkan dalam jadual dengan kolum Soalan, Petunjuk, dan Skema Jawapan."</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs font-semibold">
+          <div class="bg-red-50 border-3 border-red-400 p-4 rounded-xl space-y-2 shadow-sm">
+            <span class="font-black text-red-800 flex items-center gap-1">❌ Prompt Lemah (Hambar):</span>
+            <code class="block bg-white p-2.5 rounded-lg text-slate-900 font-mono border-2 border-red-300 font-bold">"Beri saya soalan sains."</code>
+            <p class="text-slate-600"><em>Hasil AI: Soalan rawak yang mungkin terlalu mudah atau di luar silibus sekolah.</em></p>
+          </div>
+
+          <div class="bg-emerald-50 border-3 border-emerald-400 p-4 rounded-xl space-y-2 shadow-sm">
+            <span class="font-black text-emerald-800 flex items-center gap-1">✅ Prompt Mantap (Lego Formula):</span>
+            <code class="block bg-white p-2.5 rounded-lg text-emerald-950 font-mono border-2 border-emerald-300 font-bold">"Bertindak sebagai Cikgu Sains. Sediakan 3 soalan latihan topik Fotosintesis untuk murid Tingkatan 1 dalam format jadual beserta jawapan."</code>
+            <p class="text-slate-600"><em>Hasil AI: Sangat tersusun, tepat pada silibus, dan sedia untuk dicetak!</em></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-between items-center pt-4">
+        <button onclick="showSection('modul5')" class="px-5 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-800">
+          ⬅ Modul 5
+        </button>
+        <button onclick="awardXP(20, 'Menamatkan Modul 6 AI & Prompting!'); showSection('simulasi-hub')" class="btn-3d-cyan px-7 py-3.5 rounded-2xl font-black text-white text-sm flex items-center gap-2 shadow-lg">
+          <span>🚀 Buka Zon Simulasi Interaktif</span> ➔
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- SECTION: HUB 6 SIMULASI INTERAKTIF -->
+    <!-- ========================================================================= -->
+    <section id="section-simulasi-hub" class="hidden space-y-8">
+      
+      <div class="vibrant-card p-6 sm:p-8 border-4 border-amber-400 bg-gradient-to-r from-amber-100 via-white to-sky-100 relative">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center sm:text-left">
+            <span class="px-4 py-1.5 bg-amber-400 text-slate-950 rounded-full text-xs font-black uppercase shadow-md border border-amber-500">
+              🎮 Makmal Simulasi Praktikal
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Uji Kefahaman Anda Melalui 6 Simulasi Interaktif!</h2>
+            <p class="text-slate-700 text-xs sm:text-sm max-w-xl font-bold">
+              Simulasi ini bukan sekadar permainan kosong; ia membolehkan anda mencuba secara terus bagaimana Google Drive berkongsi fail, bagaimana gelombang WiFi bersambung, dan bagaimana membina prompt AI.
+            </p>
+          </div>
+          <div class="text-6xl animate-bounce">🕹️</div>
+        </div>
+      </div>
+
+      <!-- Simulasi Selector Tabs with Bold Candy Buttons -->
+      <div class="flex flex-wrap gap-2.5 justify-center border-b-2 border-slate-200 pb-4">
+        <button onclick="switchSimTab('sim-drive')" id="tab-sim-drive" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-black bg-amber-400 text-slate-950 shadow-md border-2 border-amber-500">
+          ☁️ Simulasi Google Drive
+        </button>
+        <button onclick="switchSimTab('sim-wifi')" id="tab-sim-wifi" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm">
+          📡 Simulasi Sambungan WiFi
+        </button>
+        <button onclick="switchSimTab('sim-prompt')" id="tab-sim-prompt" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm">
+          🤖 Studio Prompt AI PdP
+        </button>
+        <button onclick="switchSimTab('sim-office')" id="tab-sim-office" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm">
+          📊 Padanan MS Office
+        </button>
+        <button onclick="switchSimTab('sim-scam')" id="tab-sim-scam" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm">
+          🕵️ Pengimbas Scam & Phishing
+        </button>
+        <button onclick="switchSimTab('sim-excel')" id="tab-sim-excel" class="sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm">
+          📈 Live Excel Calculator
+        </button>
+      </div>
+
+      <!-- ==================== SIMULATOR 1: GOOGLE DRIVE ==================== -->
+      <div id="sim-drive" class="sim-container vibrant-card card-amber p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-amber-900 flex items-center gap-2">
+              <span>☁️</span> Simulasi Maya: Muat Naik Fail & Tetapan Share Link Google Drive
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Cuba simulasi muat naik dokumen dan tetapkan kebenaran akses pautan.</p>
+          </div>
+          <span class="bg-amber-500 text-slate-950 text-xs px-3.5 py-1 rounded-full font-black shadow">Simulasi #1</span>
+        </div>
+
+        <div class="bg-white rounded-2xl border-3 border-slate-300 overflow-hidden shadow-lg">
+          <div class="bg-slate-100 px-4 py-3 border-b-2 border-slate-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">📁</span>
+              <span class="font-black text-slate-900 text-sm">Google Drive Sekolah (My Drive)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="driveCreateFolder()" class="bg-white hover:bg-slate-50 text-xs text-sky-800 px-3.5 py-2 rounded-xl border-2 border-slate-300 font-black flex items-center gap-1 shadow-sm">
+                <span>➕</span> Folder Baharu
+              </button>
+              <button onclick="driveUploadFile()" class="btn-3d-yellow text-xs px-4 py-2 rounded-xl font-black flex items-center gap-1 shadow">
+                <span>⬆️</span> Upload Fail Maya
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 bg-slate-50">
+            <div class="text-xs font-black text-slate-600 uppercase tracking-wider mb-3">Fail & Folder Anda:</div>
+            <div id="drive-files-container" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="bg-white p-4 rounded-xl border-2 border-slate-300 shadow-sm flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-3xl text-amber-500">📁</span>
+                  <div>
+                    <div class="font-black text-slate-900 text-xs">Nota Sains Tingkatan 3</div>
+                    <div class="text-[10px] text-slate-500 font-bold">Folder • 4 Fail</div>
+                  </div>
+                </div>
+                <button onclick="openShareModal('Folder Nota Sains')" class="text-xs bg-sky-100 hover:bg-sky-600 hover:text-white px-3 py-1.5 rounded-lg text-sky-900 font-black border border-sky-300 transition shadow-sm">Share 🔗</button>
+              </div>
+
+              <div class="bg-white p-4 rounded-xl border-2 border-slate-300 shadow-sm flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-3xl text-blue-500">📄</span>
+                  <div>
+                    <div class="font-black text-slate-900 text-xs">Kertas Kerja Projek.docx</div>
+                    <div class="text-[10px] text-slate-500 font-bold">2.4 MB • Word Doc</div>
+                  </div>
+                </div>
+                <button onclick="openShareModal('Kertas Kerja Projek.docx')" class="text-xs bg-sky-100 hover:bg-sky-600 hover:text-white px-3 py-1.5 rounded-lg text-sky-900 font-black border border-sky-300 transition shadow-sm">Share 🔗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share Link Config Modal Simulation -->
+        <div id="share-modal" class="hidden bg-white border-4 border-sky-500 p-6 rounded-3xl space-y-4 shadow-2xl">
+          <div class="flex justify-between items-center border-b-2 border-slate-200 pb-3">
+            <div class="font-black text-slate-900 text-base flex items-center gap-2">
+              <span>🔗</span> Tetapan Kongsi: <span id="share-item-name" class="text-sky-700">Fail</span>
+            </div>
+            <button onclick="closeShareModal()" class="text-slate-400 hover:text-slate-800 text-sm font-black">✕ Tutup</button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold">
+            <div>
+              <label class="text-slate-900 block mb-1">1. Akses Am (General Access):</label>
+              <select id="share-access-type" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold" onchange="updateShareSummary()">
+                <option value="restricted">🔒 Restricted (Hanya emel terpilih)</option>
+                <option value="anyone" selected>🌐 Anyone with the link (Sesiapa ada pautan)</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-slate-900 block mb-1">2. Peranan / Kebenaran:</label>
+              <select id="share-role-type" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold" onchange="updateShareSummary()">
+                <option value="viewer">👀 Viewer (Hanya Boleh Lihat & Muat Turun)</option>
+                <option value="commenter">💬 Commenter (Boleh Beri Komen)</option>
+                <option value="editor" selected>✏️ Editor (Boleh Menyunting Bersama)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="share-link-box" class="bg-sky-50 p-4 rounded-xl border-2 border-sky-300 flex items-center justify-between gap-2 text-xs">
+            <span class="text-sky-950 font-mono truncate font-black">https://drive.google.com/file/d/1aBcDeFgHiJkLmNoP/view?usp=sharing</span>
+            <button onclick="copySimulatedLink()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl font-black whitespace-nowrap shadow-md">
+              📋 Salin Pautan
+            </button>
+          </div>
+          <p id="share-status-msg" class="text-xs text-emerald-700 font-black"></p>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULATOR 2: WIFI CONNECTION ==================== -->
+      <div id="sim-wifi" class="sim-container hidden vibrant-card card-emerald p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-emerald-900 flex items-center gap-2">
+              <span>📡</span> Simulasi Sambungan WiFi & Gelombang Frekuensi
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Pilih hotspot sekolah, masukkan kata laluan WPA2, dan lihat proses pertukaran isyarat radio.</p>
+          </div>
+          <span class="bg-emerald-600 text-white text-xs px-3.5 py-1 rounded-full font-black shadow">Simulasi #2</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div class="bg-white p-6 rounded-3xl border-4 border-slate-400 shadow-2xl space-y-4 max-w-sm mx-auto w-full">
+            <div class="flex justify-between items-center text-xs text-slate-600 border-b-2 border-slate-200 pb-2">
+              <span class="font-black">10:30 AM</span>
+              <span id="wifi-phone-indicator" class="font-black text-slate-700">📶 Tidak Bersambung</span>
+            </div>
+            
+            <div class="space-y-3 font-bold text-xs">
+              <label class="text-slate-900 block">Pilih Rangkaian WiFi (SSID):</label>
+              <select id="wifi-ssid-select" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold">
+                <option value="SMK_BESTARI_5G">📶 SMK_BESTARI_5G (5 GHz - Sangat Laju)</option>
+                <option value="MAKMAL_KOMPUTER_2.4G">📶 MAKMAL_KOMPUTER_2.4G (2.4 GHz - Jauh)</option>
+                <option value="KAFE_OPEN_WIFI">⚠️ KAFE_OPEN_WIFI (Tidak Selamat / Tiada Password)</option>
+              </select>
+
+              <label class="text-slate-900 block">Masukkan Password WiFi:</label>
+              <input type="password" id="wifi-pwd-input" placeholder="Taip: bestari2026" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold">
+
+              <button onclick="connectSimWifi()" class="w-full btn-3d-green py-3 rounded-xl font-black text-white text-xs shadow-md">
+                🔌 Sambungkan ke WiFi
+              </button>
+            </div>
+
+            <div id="wifi-status-card" class="bg-slate-50 p-3.5 rounded-xl border-2 border-slate-200 text-xs text-slate-700 space-y-1 font-bold">
+              <div>Status: <span id="wifi-status-text" class="text-red-600 font-black">Terputus</span></div>
+              <div>Alamat IP: <span id="wifi-ip-text" class="font-mono text-slate-900 font-black">-</span></div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-50 p-6 rounded-2xl border-3 border-emerald-300 space-y-4 text-xs text-slate-800 font-semibold shadow-md">
+            <h4 class="font-black text-emerald-950 text-base flex items-center gap-2">
+              <span>💡</span> Bagaimana Komputer Tahu Password Betul?
+            </h4>
+            <p class="leading-relaxed">
+              Semasa anda menekan *Sambung*, peranti anda menghantar jabat tangan (*4-way handshake*) berenkripsi kepada router. Router menyemak sama ada kunci keselamatan cocok sebelum memberikan <strong>Alamat IP Tempatan (DHCP)</strong>.
+            </p>
+            <div class="bg-white p-3.5 rounded-xl border-2 border-emerald-300 space-y-1 shadow-sm font-bold">
+              <strong class="text-emerald-800 block">Kunci Kata Laluan Demo:</strong>
+              <div>• Untuk SSID Sekolah: Taip <code>bestari2026</code></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULATOR 3: AI PROMPT STUDIO ==================== -->
+      <div id="sim-prompt" class="sim-container hidden vibrant-card card-pink p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-pink-900 flex items-center gap-2">
+              <span>🤖</span> Studio Pembina Prompt AI untuk PdP Sekolah
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Pilih komponen blok Lego untuk menjana prompt berkualiti tinggi dan lihat simulasi jawapan AI!</p>
+          </div>
+          <span class="bg-pink-600 text-white text-xs px-3.5 py-1 rounded-full font-black shadow">Simulasi #3</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="space-y-4 font-bold text-xs">
+            <div>
+              <label class="text-amber-900 block mb-1">1. Pilih Peranan AI (Role):</label>
+              <select id="prompt-role" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold" onchange="generateSimPrompt()">
+                <option value="Guru Sains Tingkatan 3 yang penyayang dan pakar analogi">👩‍🏫 Guru Sains Pakar Analogi</option>
+                <option value="Tutor Matematik Cerdas yang menerangkan langkah demi langkah">📐 Tutor Matematik Langkah Demi Langkah</option>
+                <option value="Pakar Tatabahasa Bahasa Melayu & Penulis Skrip">📝 Pakar Tatabahasa Bahasa Melayu</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-red-900 block mb-1">2. Pilih Tugasan PdP (Task):</label>
+              <select id="prompt-task" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-bold" onchange="generateSimPrompt()">
+                <option value="Sediakan 3 soalan KBAT berserta penerangan skema jawapan">Bina 3 Soalan Latihan KBAT + Jawapan</option>
+                <option value="Ringkaskan konsep penting menjadi peta minda berstruktur">Ringkaskan Topik Menjadi Peta Minda</option>
+                <option value="Jelaskan konsep sukar dengan analogi kartun yang lucu">Terangkan Konsep Guna Analogi Kartun</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-emerald-900 block mb-1">3. Pilih Subjek & Topik (Topic):</label>
+              <input type="text" id="prompt-topic" value="Fotosintesis & Respirasi Sel" class="w-full bg-slate-50 border-2 border-slate-300 text-slate-900 p-2.5 rounded-xl font-black" oninput="generateSimPrompt()">
+            </div>
+
+            <div class="bg-pink-50 p-4 rounded-2xl border-3 border-pink-400 space-y-2 shadow-sm">
+              <span class="text-xs font-black text-pink-950 uppercase">Prompt Yang Terhasil (Lego Burger):</span>
+              <div id="full-generated-prompt" class="font-mono text-xs text-pink-950 bg-white p-3.5 rounded-xl border-2 border-pink-300 break-words font-black shadow-inner">
+                Loading prompt...
+              </div>
+              <button onclick="runSimulatedAIResponse()" class="w-full btn-3d-yellow py-3 rounded-xl font-black text-slate-950 text-xs flex items-center justify-center gap-1.5 shadow-md">
+                <span>⚡</span> Jana Simulasi Respons AI
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-3 border-pink-400 space-y-3 flex flex-col justify-between shadow-md">
+            <div>
+              <div class="flex items-center justify-between border-b-2 border-slate-200 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span class="text-xs font-black text-slate-900">Simulasi Skrin AI (Gemini / ChatGPT)</span>
+                </div>
+                <span class="text-[10px] bg-pink-100 text-pink-900 px-2.5 py-0.5 rounded-full font-black border border-pink-300">Tutor Maya</span>
+              </div>
+              <div id="sim-ai-output" class="text-xs text-slate-800 font-semibold space-y-3 leading-relaxed max-h-80 overflow-y-auto pr-1">
+                <p class="text-slate-500 italic">Klik butang 'Jana Simulasi Respons AI' di sebelah untuk melihat bagaimana model AI memproses prompt anda.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULATOR 4: MS OFFICE MATCHER (10 SOALAN) ==================== -->
+      <div id="sim-office" class="sim-container hidden vibrant-card card-purple p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-purple-900 flex items-center gap-2">
+              <span>📊</span> Cabaran Padanan Pintar: 10 Soalan Pelbagai Perisian MS Office
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Baca situasi tugasan sekolah di bawah dan pilih perisian Microsoft Office yang paling tepat!</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="office-progress-badge" class="bg-purple-600 text-white text-xs px-3.5 py-1 rounded-full font-black shadow">Soalan 1 / 10</span>
+            <span id="office-score-badge" class="bg-amber-400 text-slate-950 text-xs px-3 py-1 rounded-full font-black shadow border border-amber-500">Skor: 0</span>
+          </div>
+        </div>
+
+        <div id="office-scenario-card" class="bg-purple-50 p-6 sm:p-8 rounded-3xl border-3 border-purple-400 space-y-5 shadow-lg">
+          
+          <!-- Category / Role Tag -->
+          <div class="flex items-center justify-between">
+            <span id="office-scenario-tag" class="text-xs font-black text-purple-800 bg-purple-200 px-3 py-1 rounded-full uppercase border border-purple-300">
+              📌 Situasi Sekolah #1
+            </span>
+            <span id="office-hint-text" class="text-xs text-slate-500 font-bold">Pilih 1 jawapan di bawah:</span>
+          </div>
+
+          <!-- Question Prompt -->
+          <div class="bg-white p-5 rounded-2xl border-2 border-purple-300 shadow-sm">
+            <h4 id="office-question-text" class="text-base sm:text-lg font-black text-slate-900 leading-relaxed">
+              "Cikgu meminta anda mengira purata markah ujian 35 orang murid kelas anda dan menjana graf bar kedudukan tertinggi secara automatik."
+            </h4>
+          </div>
+
+          <!-- 6 Colorful 3D Choice Buttons -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+            <button onclick="checkOfficeChoice('word')" class="p-3.5 rounded-2xl bg-white hover:bg-blue-600 hover:text-white border-3 border-blue-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📄</span>
+              <span>MS Word</span>
+              <span class="text-[9px] text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md font-bold">Dokumen</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('excel')" class="p-3.5 rounded-2xl bg-white hover:bg-emerald-600 hover:text-white border-3 border-emerald-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📈</span>
+              <span>MS Excel</span>
+              <span class="text-[9px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md font-bold">Hamparan</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('powerpoint')" class="p-3.5 rounded-2xl bg-white hover:bg-orange-600 hover:text-white border-3 border-orange-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📽️</span>
+              <span>PowerPoint</span>
+              <span class="text-[9px] text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md font-bold">Slaid 6x6</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('access')" class="p-3.5 rounded-2xl bg-white hover:bg-red-600 hover:text-white border-3 border-red-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">🗄️</span>
+              <span>MS Access</span>
+              <span class="text-[9px] text-red-700 bg-red-100 px-2 py-0.5 rounded-md font-bold">Pangkalan Data</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('outlook')" class="p-3.5 rounded-2xl bg-white hover:bg-sky-600 hover:text-white border-3 border-sky-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">✉️</span>
+              <span>MS Outlook</span>
+              <span class="text-[9px] text-sky-700 bg-sky-100 px-2 py-0.5 rounded-md font-bold">Emel & Jadual</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('teams')" class="p-3.5 rounded-2xl bg-white hover:bg-indigo-600 hover:text-white border-3 border-indigo-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">👥</span>
+              <span>MS Teams</span>
+              <span class="text-[9px] text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md font-bold">Kelas Maya</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Feedback Banner -->
+          <div id="office-feedback" class="text-xs font-black p-4 rounded-2xl hidden shadow-md"></div>
+
+          <!-- Next Button / Completion Controls -->
+          <div class="flex justify-between items-center pt-2">
+            <button onclick="restartOfficeQuiz()" class="text-xs text-purple-700 hover:underline font-black flex items-center gap-1">
+              🔄 Mula Semula Cabaran
+            </button>
+            <button id="office-next-btn" onclick="nextOfficeQuestion()" class="hidden btn-3d-yellow px-6 py-2.5 rounded-xl font-black text-slate-950 text-xs shadow-md">
+              Soalan Seterusnya ➔
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== SIMULATOR 5: SCAM SCANNER ==================== -->
+      <div id="sim-scam" class="sim-container hidden vibrant-card card-red p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-red-900 flex items-center gap-2">
+              <span>🕵️</span> Pengimbas Mesej Scammer & Pancingan Data (Phishing)
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Gunakan kanta pembesar anda untuk mengesan tanda amaran (*red flags*) dalam mesej yang mencurigakan.</p>
+          </div>
+          <span class="bg-red-600 text-white text-xs px-3.5 py-1 rounded-full font-black shadow">Simulasi #5</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div class="bg-red-50 p-5 rounded-2xl border-3 border-red-400 space-y-3 shadow-md">
+            <div class="flex items-center gap-2 text-xs text-red-700 font-black">
+              <span>⚠️</span> Dari: <code>admin@netflix-security-alert99.com</code>
+            </div>
+            <div class="bg-white p-4 rounded-xl text-xs text-slate-900 space-y-2 border-2 border-red-300 shadow-sm font-semibold">
+              <div class="font-black text-red-600 text-sm">AMARAN: Akaun Anda Akan Dipadam Dalam Masa 24 Jam!</div>
+              <p>Pelanggan yang dihargai, bayaran langganan anda gagal. Sila klik pautan di bawah dengan segera untuk masukkan nombor kad bank anda:</p>
+              <a href="javascript:void(0)" class="text-sky-700 underline font-mono font-black block break-all">http://netflix-login-update-myaccount.ru/verify</a>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-3 border-red-300 space-y-3 text-xs shadow-md font-semibold">
+            <h4 class="font-black text-red-900 text-sm">🚩 3 Tanda Amaran Utama (Red Flags):</h4>
+            <div class="space-y-2 text-slate-800">
+              <div class="p-2.5 bg-red-50 rounded-xl border-2 border-red-200">
+                <strong class="text-red-700 font-black">1. Alamat Emel Pelik:</strong> Nama domain <code>@netflix-security-alert99.com</code> bukan domain rasmi <code>@netflix.com</code>.
+              </div>
+              <div class="p-2.5 bg-red-50 rounded-xl border-2 border-red-200">
+                <strong class="text-red-700 font-black">2. Emosi Terdesak (Urgency):</strong> Menakut-nakutkan mangsa dengan had masa 24 jam supaya mangsa panik.
+              </div>
+              <div class="p-2.5 bg-red-50 rounded-xl border-2 border-red-200">
+                <strong class="text-red-700 font-black">3. Pautan Tidak Selamat (HTTP):</strong> Menggunakan pautan <code>http://</code> (tiada kunci SSL) dan domain luar (.ru).
+              </div>
+            </div>
+            <button onclick="awardXP(25, 'Berjaya Mengesan Red Flags Scammer!');" class="w-full btn-3d-green py-3 rounded-xl font-black text-white text-xs shadow-md">
+              🛡️ Laporkan Sebagai Scam (+25 XP)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== SIMULATOR 6: LIVE EXCEL CALCULATOR ==================== -->
+      <div id="sim-excel" class="sim-container hidden vibrant-card card-emerald p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b-2 border-slate-200 pb-4">
+          <div>
+            <h3 class="text-2xl font-black text-emerald-900 flex items-center gap-2">
+              <span>📈</span> Kalkulator Hamparan Excel Live & Graf Bar Dinamik
+            </h3>
+            <p class="text-xs text-slate-600 font-bold">Ubah markah acara sukan di bawah dan tonton formula `=SUM()` dan `=IF()` mengira secara automatik!</p>
+          </div>
+          <span class="bg-emerald-600 text-white text-xs px-3.5 py-1 rounded-full font-black shadow">Simulasi #6</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl border-3 border-emerald-400 overflow-hidden text-xs shadow-md">
+            <div class="bg-emerald-700 text-white font-black px-4 py-2.5 flex items-center justify-between text-sm">
+              <span>Hamparan Sukan Tahunan SMK Bestari</span>
+              <span class="font-mono text-xs">=SUM() & =IF()</span>
+            </div>
+            <table class="w-full text-left border-collapse font-bold">
+              <thead>
+                <tr class="bg-emerald-100 text-emerald-950 border-b-2 border-emerald-300">
+                  <th class="p-3">Rumah Sukan</th>
+                  <th class="p-3">Acara 100M</th>
+                  <th class="p-3">Lompat Jauh</th>
+                  <th class="p-3">Jumlah Markah</th>
+                  <th class="p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-mono">
+                <tr>
+                  <td class="p-3 font-black text-red-600">🔴 Merah</td>
+                  <td class="p-2.5"><input type="number" id="sc-m1" value="85" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td class="p-2.5"><input type="number" id="sc-m2" value="90" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td id="sc-m-total" class="p-3 font-black text-amber-700 text-sm">175</td>
+                  <td id="sc-m-status" class="p-3 text-emerald-700 font-black">Layak Final</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-black text-blue-600">🔵 Biru</td>
+                  <td class="p-2.5"><input type="number" id="sc-b1" value="70" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td class="p-2.5"><input type="number" id="sc-b2" value="65" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td id="sc-b-total" class="p-3 font-black text-amber-700 text-sm">135</td>
+                  <td id="sc-b-status" class="p-3 text-emerald-700 font-black">Layak Final</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-black text-yellow-600">🟡 Kuning</td>
+                  <td class="p-2.5"><input type="number" id="sc-k1" value="40" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td class="p-2.5"><input type="number" id="sc-k2" value="45" class="w-16 bg-slate-50 border-2 border-slate-300 text-slate-900 p-1.5 rounded-lg font-black" oninput="recalcExcel()"></td>
+                  <td id="sc-k-total" class="p-3 font-black text-amber-700 text-sm">85</td>
+                  <td id="sc-k-status" class="p-3 text-slate-500 font-black">Saringan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border-3 border-emerald-400 flex flex-col justify-between space-y-4 shadow-md">
+            <div class="text-xs font-black text-slate-900">Graf Bar Kedudukan Sukan Semasa:</div>
+            
+            <div class="space-y-3 text-xs font-bold">
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-red-700 font-black">Rumah Merah</span>
+                  <span id="chart-lbl-red" class="font-mono text-slate-900 font-black">175 Mata</span>
+                </div>
+                <div class="w-full bg-slate-100 h-5 rounded-full overflow-hidden border-2 border-slate-200">
+                  <div id="chart-bar-red" class="bg-red-500 h-full rounded-full transition-all duration-300" style="width: 87%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-blue-700 font-black">Rumah Biru</span>
+                  <span id="chart-lbl-blue" class="font-mono text-slate-900 font-black">135 Mata</span>
+                </div>
+                <div class="w-full bg-slate-100 h-5 rounded-full overflow-hidden border-2 border-slate-200">
+                  <div id="chart-bar-blue" class="bg-blue-500 h-full rounded-full transition-all duration-300" style="width: 67%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="text-yellow-700 font-black">Rumah Kuning</span>
+                  <span id="chart-lbl-yellow" class="font-mono text-slate-900 font-black">85 Mata</span>
+                </div>
+                <div class="w-full bg-slate-100 h-5 rounded-full overflow-hidden border-2 border-slate-200">
+                  <div id="chart-bar-yellow" class="bg-amber-400 h-full rounded-full transition-all duration-300" style="width: 42%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-emerald-950 bg-emerald-100 p-3 rounded-xl border-2 border-emerald-300 font-bold">
+              💡 Formula Status: <code>=IF(Jumlah >= 100, "Layak Final", "Saringan")</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- SECTION: KUIZ PENTAKSIRAN & PENJANA SIJIL DIGITAL -->
+    <!-- ========================================================================= -->
+    <section id="section-kuiz-akhir" class="hidden space-y-8">
+      
+      <!-- Quiz Header -->
+      <div class="vibrant-card p-6 sm:p-8 border-4 border-amber-400 bg-gradient-to-r from-amber-100 via-white to-yellow-100 relative text-center">
+        <div class="inline-block p-4 bg-amber-400 text-slate-950 rounded-2xl text-4xl mb-3 shadow-lg border-2 border-amber-500">
+          🏆
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bubble text-slate-950 tracking-wider">Grand Quiz Pentaksiran & Sijil Murid</h2>
+        <p class="text-slate-700 text-xs sm:text-sm max-w-xl mx-auto mt-2 font-bold">
+          Jawab 5 soalan pentaksiran komprehensif ini untuk menguji tahap kefahaman anda dan jana <strong>Sijil Pentauliahan Digital Rasmi</strong> dengan watak Milo & Bit!
+        </p>
+      </div>
+
+      <!-- Quiz Card Form -->
+      <div id="quiz-box" class="vibrant-card p-6 sm:p-8 space-y-6 max-w-3xl mx-auto">
+        <div class="flex justify-between items-center border-b-2 border-slate-200 pb-3">
+          <span class="text-xs font-black text-amber-900 uppercase tracking-wider">Soalan <span id="quiz-curr-idx">1</span> daripada 5</span>
+          <span id="quiz-score-pill" class="text-xs font-black bg-sky-100 text-sky-950 px-3.5 py-1.5 rounded-full border-2 border-sky-300 shadow-sm">Markah: 0 / 5</span>
+        </div>
+
+        <div class="space-y-4">
+          <h3 id="quiz-q-text" class="text-base sm:text-lg font-black text-slate-900 leading-relaxed">
+            Loading soalan...
+          </h3>
+
+          <div id="quiz-options-box" class="space-y-3">
+            <!-- Options injected by JS -->
+          </div>
+
+          <div id="quiz-explanation" class="hidden p-4 rounded-2xl text-xs font-bold"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden btn-3d-yellow px-7 py-3 rounded-2xl font-black text-slate-950 text-xs">
+            Soalan Seterusnya ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate Generator Area -->
+      <div id="cert-section" class="hidden space-y-6 max-w-4xl mx-auto">
+        
+        <div class="vibrant-card card-amber border-4 border-amber-400 p-8 rounded-3xl space-y-4 text-center bg-gradient-to-br from-amber-100 to-white">
+          <span class="text-5xl">🎉</span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Tahniah! Anda Telah Menamatkan Cabaran Digital Quest!</h3>
+          <p class="text-xs text-slate-700 max-w-md mx-auto font-bold">Masukkan nama dan sekolah anda untuk mencetak atau menyimpan Sijil Pentauliahan Digital anda:</p>
+          
+          <div class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <input type="text" id="cert-input-name" placeholder="Nama Penuh Anda (Cth: Ahmad Danial)" class="w-full bg-white border-3 border-amber-400 text-slate-950 font-black text-sm px-4 py-3 rounded-2xl text-center shadow-sm">
+            <input type="text" id="cert-input-school" placeholder="Nama Sekolah (Cth: SMK Bestari)" class="w-full bg-white border-3 border-sky-400 text-slate-950 font-black text-sm px-4 py-3 rounded-2xl text-center shadow-sm">
+          </div>
+          
+          <button onclick="generateCertificate()" class="btn-3d-yellow px-8 py-3.5 rounded-2xl font-black text-slate-950 text-base shadow-xl">
+            📜 Jana Sijil Digital Sekarang
+          </button>
+        </div>
+
+        <!-- Printable Certificate Canvas -->
+        <div id="printable-cert" class="hidden bg-gradient-to-br from-amber-50 via-white to-sky-50 border-8 border-amber-500 rounded-3xl p-8 sm:p-12 text-slate-900 text-center shadow-2xl relative overflow-hidden">
+          
+          <div class="flex justify-between items-center border-b-2 border-amber-300 pb-4 mb-6">
+            <div class="flex items-center gap-2">
+              <span class="text-3xl">🤖</span>
+              <span class="font-bubble text-2xl text-sky-600">MILO & BIT</span>
+            </div>
+            <div class="text-right">
+              <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest">SIJIL PENTAULIAHAN DIGITAL</div>
+              <div id="cert-serial-no" class="font-mono text-xs font-black text-sky-700">NO: MB-2026-9842</div>
+            </div>
+          </div>
+
+          <div class="space-y-4 py-4">
+            <div class="text-xs font-black text-amber-800 uppercase tracking-widest">Dengan ini diperakui bahawa</div>
+            <h2 id="cert-display-name" class="text-3xl sm:text-4xl font-bubble text-slate-900 tracking-wider">AHMAD DANIAL BIN ZULKIFLI</h2>
+            <div class="text-sm font-black text-slate-600" id="cert-display-school">SMK BESTARI JAYA</div>
+            <p class="text-xs text-slate-700 max-w-xl mx-auto leading-relaxed pt-2 font-bold">
+              Telah berjaya menyelesaikan kesemua 6 modul dan simulasi praktikal merangkumi <strong>Asas Teknologi Digital, Rangkaian LAN/WAN & WiFi, Keselamatan Siber, Microsoft Office Suite, Google Drive, dan Kecerdasan Buatan (AI)</strong>.
+            </p>
+          </div>
+
+          <div class="flex justify-between items-end border-t-2 border-amber-300 pt-6 mt-6">
+            <div class="text-left">
+              <div class="text-xs font-black text-slate-800">Milo & Bit AI Academy</div>
+              <div class="text-[10px] text-slate-500 font-bold">Platform Inovasi Pembelajaran Digital Sekolah Menengah</div>
+            </div>
+            <div class="w-16 h-16 rounded-full border-4 border-amber-500 bg-amber-100 flex items-center justify-center font-bubble text-amber-800 text-xs shadow-inner">
+              LULUS
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-center gap-3 no-print">
+            <button onclick="window.print()" class="btn-3d-yellow px-7 py-3 rounded-2xl font-black text-slate-950 text-xs flex items-center gap-2">
+              🖨️ Cetak / Simpan PDF Sijil
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== FLOATING INTERACTIVE BIT AI MASCOT WIDGET ==================== -->
+  <div id="floating-mascot" class="fixed bottom-5 right-5 z-50 flex items-end gap-3 group">
+    
+    <div id="mascot-speech-bubble" class="hidden bg-white text-slate-900 border-3 border-sky-400 p-4 rounded-3xl rounded-br-none shadow-2xl text-xs max-w-xs transition-all duration-300">
+      <div class="flex justify-between items-start gap-2 mb-1">
+        <span id="mascot-speaker-name" class="font-black text-sky-600 text-xs">Bit &lt;/&gt;</span>
+        <button onclick="hideMascotBubble()" class="text-slate-400 hover:text-slate-800 text-xs font-black">✕</button>
+      </div>
+      <p id="mascot-speech-text" class="text-slate-700 font-bold leading-relaxed">
+        Hai! Klik mana-mana topik untuk memulakan misi anda bersama saya!
+      </p>
+    </div>
+
+    <!-- 3D Mascot Avatar Trigger Button -->
+    <div onclick="toggleMascotBubble()" class="w-16 h-16 rounded-2xl overflow-hidden character-frame-3d border-3 border-amber-400 flex items-center justify-center cursor-pointer shadow-2xl animate-robot bg-white relative">
+      <img src="assets/bit.jpg" alt="Bit Avatar" class="w-full h-full object-cover">
+      <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-sky-500"></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-white border-t-4 border-amber-400 py-8 px-4 text-center text-xs text-slate-700 space-y-2 mt-12">
+    <div class="font-bubble text-sky-600 text-2xl tracking-wider">Milo & Bit: The Digital Quest</div>
+    <p class="font-black">Direka untuk Memperkasakan Pendidikan Digital & AI Sekolah Menengah Malaysia • Dikuasakan oleh Google Antigravity</p>
+    <div class="text-xs text-amber-600 font-black">Turn Curiosity into Real Superpowers! 🚀</div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    let state = {
+      xp: 0,
+      audioEnabled: true,
+      quizCurrentIndex: 0,
+      quizScore: 0
+    };
+
+    // Load saved XP
+    try {
+      const savedXP = localStorage.getItem('mb_xp');
+      if (savedXP) {
+        state.xp = parseInt(savedXP, 10) || 0;
+        document.getElementById('user-xp').innerText = `${state.xp} XP`;
+      }
+    } catch(e) {}
+
+    // --- WEB AUDIO SYNTHESIZER ---
+    let audioCtx = null;
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playSound(type) {
+      if (!state.audioEnabled) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+
+        if (type === 'beep') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, now);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+          osc.start(now);
+          osc.stop(now + 0.1);
+        } else if (type === 'success') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.1);
+          osc.frequency.setValueAtTime(783.99, now + 0.2);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (type === 'error') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.setValueAtTime(160, now + 0.15);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+          osc.start(now);
+          osc.stop(now + 0.3);
+        }
+      } catch(e) {}
+    }
+
+    function toggleAudio() {
+      state.audioEnabled = !state.audioEnabled;
+      const btn = document.getElementById('sound-btn');
+      btn.innerText = state.audioEnabled ? '🔊' : '🔇';
+      playSound('beep');
+    }
+
+    // --- XP SYSTEM ---
+    function awardXP(amount, reason) {
+      state.xp += amount;
+      document.getElementById('user-xp').innerText = `${state.xp} XP`;
+      try {
+        localStorage.setItem('mb_xp', state.xp);
+      } catch(e) {}
+      playSound('success');
+      
+      showToast(`⭐ +${amount} XP: ${reason}`);
+    }
+
+    function showToast(msg) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-24 right-6 z-50 bg-amber-400 text-slate-950 font-black text-xs px-5 py-3 rounded-2xl shadow-2xl border-3 border-white animate-bounce';
+      toast.innerText = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+
+    // --- MASCOT COMPANION ---
+    function mascotSpeak(name, text) {
+      const bubble = document.getElementById('mascot-speech-bubble');
+      const speaker = document.getElementById('mascot-speaker-name');
+      const speech = document.getElementById('mascot-speech-text');
+
+      speaker.innerText = name;
+      speech.innerText = text;
+      bubble.classList.remove('hidden');
+      playSound('beep');
+
+      setTimeout(() => {
+        bubble.classList.add('hidden');
+      }, 7000);
+    }
+
+    function toggleMascotBubble() {
+      const bubble = document.getElementById('mascot-speech-bubble');
+      if (bubble.classList.contains('hidden')) {
+        mascotSpeak('Bit </>', 'Ada soalan tentang modul atau perlukan bantuan formula? Klik mana-mana simulasi di zon arked!');
+      } else {
+        bubble.classList.add('hidden');
+      }
+    }
+
+    function hideMascotBubble() {
+      document.getElementById('mascot-speech-bubble').classList.add('hidden');
+    }
+
+    // --- SECTION NAVIGATION ---
+    function showSection(sectionId) {
+      const sections = ['hub', 'modul1', 'modul2', 'modul3', 'modul4', 'modul5', 'modul6', 'simulasi-hub', 'kuiz-akhir'];
+      sections.forEach(id => {
+        const el = document.getElementById(`section-${id}`);
+        if (el) el.classList.add('hidden');
+      });
+
+      const target = document.getElementById(`section-${sectionId}`);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        playSound('beep');
+      }
+    }
+
+    // --- MODUL 1: BINARY CONVERTER ---
+    function updateBinaryConverter() {
+      const input = document.getElementById('binary-input').value;
+      let binaryStr = '';
+      for (let i = 0; i < input.length; i++) {
+        const bin = input.charCodeAt(i).toString(2).padStart(8, '0');
+        binaryStr += bin + ' ';
+      }
+      document.getElementById('binary-output').innerText = binaryStr || '00000000';
+      document.getElementById('binary-byte-count').innerText = `${input.length} Bait (${input.length * 8} Bit)`;
+    }
+
+    // --- MODUL 3: PASSWORD STRENGTH TESTER ---
+    function testPasswordStrength() {
+      const pwd = document.getElementById('pwd-tester').value;
+      let score = 0;
+      if (pwd.length >= 8) score += 1;
+      if (pwd.length >= 12) score += 1;
+      if (/[A-Z]/.test(pwd)) score += 1;
+      if (/[0-9]/.test(pwd)) score += 1;
+      if (/[^A-Za-z0-9]/.test(pwd)) score += 1;
+
+      const bar = document.getElementById('pwd-strength-bar');
+      const label = document.getElementById('pwd-strength-label');
+      const crack = document.getElementById('pwd-crack-time');
+
+      if (score <= 1) {
+        bar.style.width = '20%';
+        bar.className = 'bg-red-500 h-full rounded-full transition-all duration-300';
+        label.innerText = 'Sangat Lemah';
+        label.className = 'text-red-600 font-black';
+        crack.innerHTML = '⏱️ Anggaran masa untuk dipecahkan: <strong class="text-red-600 font-black">Beberapa Saat Sahaja!</strong>';
+      } else if (score === 2 || score === 3) {
+        bar.style.width = '60%';
+        bar.className = 'bg-amber-500 h-full rounded-full transition-all duration-300';
+        label.innerText = 'Sederhana';
+        label.className = 'text-amber-700 font-black';
+        crack.innerHTML = '⏱️ Anggaran masa untuk dipecahkan: <strong class="text-amber-700 font-black">~ 3 Hari hingga 3 Bulan</strong>';
+      } else {
+        bar.style.width = '100%';
+        bar.className = 'bg-emerald-500 h-full rounded-full transition-all duration-300';
+        label.innerText = 'Sangat Kuat & Kebal!';
+        label.className = 'text-emerald-700 font-black';
+        crack.innerHTML = '⏱️ Anggaran masa untuk dipecahkan: <strong class="text-emerald-700 font-black">~ 250 Tahun!</strong>';
+      }
+    }
+
+    // --- SIMULATION TABS ---
+    function switchSimTab(tabId) {
+      const tabs = ['sim-drive', 'sim-wifi', 'sim-prompt', 'sim-office', 'sim-scam', 'sim-excel'];
+      tabs.forEach(t => {
+        const el = document.getElementById(t);
+        const btn = document.getElementById(`tab-${t}`);
+        if (el) el.classList.add('hidden');
+        if (btn) {
+          btn.className = 'sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-bold bg-white text-slate-800 hover:bg-slate-100 border-2 border-slate-300 shadow-sm';
+        }
+      });
+
+      const activeEl = document.getElementById(tabId);
+      const activeBtn = document.getElementById(`tab-${tabId}`);
+      if (activeEl) activeEl.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.className = 'sim-tab-btn px-5 py-2.5 rounded-2xl text-xs font-black bg-amber-400 text-slate-950 shadow-md border-2 border-amber-500';
+      }
+      playSound('beep');
+    }
+
+    // --- SIMULASI 1: GOOGLE DRIVE ---
+    function driveUploadFile() {
+      const container = document.getElementById('drive-files-container');
+      const sampleNames = ['Kajian_Sains_Bab3.pptx', 'Format_Surat_Rasmi.docx', 'Jadual_Kutipan_Koperasi.xlsx', 'Poster_Kempen_Siber.png'];
+      const chosen = sampleNames[Math.floor(Math.random() * sampleNames.length)];
+      
+      const newCard = document.createElement('div');
+      newCard.className = 'bg-white p-4 rounded-xl border-3 border-emerald-400 flex items-center justify-between shadow-md animate-pulse';
+      newCard.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <span class="text-3xl text-emerald-500">📄</span>
+          <div>
+            <div class="font-black text-slate-900 text-xs">${chosen}</div>
+            <div class="text-[10px] text-emerald-700 font-black">Baru Dimuat Naik • Cloud Safe</div>
+          </div>
+        </div>
+        <button onclick="openShareModal('${chosen}')" class="text-xs bg-sky-100 hover:bg-sky-600 hover:text-white px-3 py-1.5 rounded-lg text-sky-900 font-black border border-sky-300 transition shadow-sm">Share 🔗</button>
+      `;
+      container.appendChild(newCard);
+      awardXP(15, `Berjaya Muat Naik '${chosen}' ke Google Drive!`);
+    }
+
+    function driveCreateFolder() {
+      const folderName = prompt("Masukkan nama folder baharu:", "Tugasan Sejarah Tingkatan 3");
+      if (!folderName) return;
+      
+      const container = document.getElementById('drive-files-container');
+      const newCard = document.createElement('div');
+      newCard.className = 'bg-white p-4 rounded-xl border-3 border-amber-400 flex items-center justify-between shadow-md';
+      newCard.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <span class="text-3xl text-amber-500">📁</span>
+          <div>
+            <div class="font-black text-slate-900 text-xs">${folderName}</div>
+            <div class="text-[10px] text-slate-500 font-bold">Folder • 0 Fail</div>
+          </div>
+        </div>
+        <button onclick="openShareModal('${folderName}')" class="text-xs bg-sky-100 hover:bg-sky-600 hover:text-white px-3 py-1.5 rounded-lg text-sky-900 font-black border border-sky-300 transition shadow-sm">Share 🔗</button>
+      `;
+      container.prepend(newCard);
+      awardXP(10, `Mencipta folder '${folderName}'!`);
+    }
+
+    function openShareModal(itemName) {
+      document.getElementById('share-item-name').innerText = itemName;
+      document.getElementById('share-modal').classList.remove('hidden');
+      document.getElementById('share-status-msg').innerText = '';
+      playSound('beep');
+    }
+
+    function closeShareModal() {
+      document.getElementById('share-modal').classList.add('hidden');
+    }
+
+    function updateShareSummary() {
+      const access = document.getElementById('share-access-type').value;
+      const role = document.getElementById('share-role-type').value;
+      const msg = document.getElementById('share-status-msg');
+      msg.innerText = `Tetapan dikemaskini: [${access.toUpperCase()}] dengan hak [${role.toUpperCase()}]. Sedia disalin!`;
+    }
+
+    function copySimulatedLink() {
+      const msg = document.getElementById('share-status-msg');
+      msg.innerText = '✅ Pautan berjaya disalin ke papan klip! Anda boleh kongsikan pautan ini kepada rakan.';
+      awardXP(15, 'Menguasai Perkongsian Pautan Google Drive!');
+    }
+
+    // --- SIMULASI 2: WIFI CONNECTION ---
+    function connectSimWifi() {
+      const ssid = document.getElementById('wifi-ssid-select').value;
+      const pwd = document.getElementById('wifi-pwd-input').value;
+      const indicator = document.getElementById('wifi-phone-indicator');
+      const statusText = document.getElementById('wifi-status-text');
+      const ipText = document.getElementById('wifi-ip-text');
+
+      if (ssid === 'KAFE_OPEN_WIFI') {
+        indicator.innerText = '⚠️ Bersambung (Tidak Selamat)';
+        indicator.className = 'font-black text-amber-600';
+        statusText.innerText = 'Bersambung (AWAS: Data tidak dienkripsi!)';
+        statusText.className = 'text-amber-700 font-black';
+        ipText.innerText = '192.168.10.45';
+        awardXP(10, 'Menyambung ke WiFi Awam');
+        return;
+      }
+
+      if (pwd === 'bestari2026') {
+        indicator.innerText = '📶 Bersambung & Selamat';
+        indicator.className = 'font-black text-emerald-600';
+        statusText.innerText = `Terhubung ke ${ssid} (WPA2 Enkripsi)`;
+        statusText.className = 'text-emerald-700 font-black';
+        ipText.innerText = '192.168.1.108';
+        awardXP(25, `Berjaya menyambung peranti ke ${ssid}!`);
+      } else {
+        indicator.innerText = '❌ Kata Laluan Salah';
+        indicator.className = 'font-black text-red-600';
+        statusText.innerText = 'Gagal Sambung: Kata laluan tidak sepadan.';
+        statusText.className = 'text-red-600 font-black';
+        ipText.innerText = '-';
+        playSound('error');
+      }
+    }
+
+    // --- SIMULASI 3: PROMPT PdP BUILDER ---
+    function generateSimPrompt() {
+      const role = document.getElementById('prompt-role').value;
+      const task = document.getElementById('prompt-task').value;
+      const topic = document.getElementById('prompt-topic').value || 'Fotosintesis';
+
+      const fullPrompt = `Bertindak sebagai [${role}]. Tugasan anda adalah [${task}] bagi topik [${topic}]. Sediakan jawapan yang mesra pelajar sekolah menengah, berstruktur dengan poin nombor dan jadual ringkas.`;
+      
+      const box = document.getElementById('full-generated-prompt');
+      if (box) box.innerText = fullPrompt;
+    }
+
+    function runSimulatedAIResponse() {
+      const output = document.getElementById('sim-ai-output');
+      const topic = document.getElementById('prompt-topic').value || 'Fotosintesis';
+      
+      output.innerHTML = `
+        <div class="space-y-3">
+          <div class="text-pink-700 font-black text-sm">🤖 Respons Tutor AI Penjana PdP:</div>
+          <p><strong>Salam sejahtera peneroka digital!</strong> Berikut adalah panduan mudah topik <em>${topic}</em>:</p>
+          <div class="bg-pink-50 p-4 rounded-xl border-2 border-pink-300 space-y-2 text-slate-900 font-bold">
+            <div><strong>1. Konsep Utama:</strong> Tumbuhan memerlukan Cahaya Matahari + Air + Karbon Dioksida untuk menghasilkan Glukosa + Oksigen.</div>
+            <div><strong>2. Analogi Mudah:</strong> Daun hijau adalah seperti <em>dapur memasak kecil</em> yang menggunakan tenaga matahari sebagai api dapur.</div>
+            <div><strong>3. Soalan KBAT:</strong> <em>Mengapakah pokok di dalam bilik gelap tidak dapat membesar dengan subur?</em></div>
+            <div class="text-amber-900 text-xs font-black"><strong>Skema Jawapan:</strong> Kerana ketiadaan foton cahaya matahari untuk mengaktifkan klorofil semasa fotosintesis.</div>
+          </div>
+        </div>
+      `;
+      awardXP(25, 'Menjana Respons AI Berkualiti Tinggi!');
+    }
+
+    // --- SIMULASI 4: MS OFFICE MATCHER (10 SOALAN) ---
+    const officeScenarios = [
+      {
+        tag: "Situasi #1: Analisis Markah Peperiksaan",
+        q: "Cikgu meminta anda mengira purata markah ujian 35 orang murid kelas anda dan menjana graf bar kedudukan markah tertinggi secara automatik.",
+        correct: "excel",
+        name: "MS Excel",
+        explain: "Tepat sekali! MS Excel ialah pakar pengiraan formula matematik (=AVERAGE, =SUM) dan penjanaan graf statistik automatik."
+      },
+      {
+        tag: "Situasi #2: Surat Rasmi Sekolah",
+        q: "Setiausaha Kelab Komputer perlu menulis Surat Permohonan Rasmi Lawatan Sambil Belajar kepada Pengetua lengkap dengan Kepala Surat (Header), nombor rujukan, dan format perenggan tersusun (Justify).",
+        correct: "word",
+        name: "MS Word",
+        explain: "Tepat sekali! MS Word ialah perisian pemprosesan perkataan terbaik untuk mendraf surat rasmi, laporan, dan dokumen bertulis berformat rapi."
+      },
+      {
+        tag: "Situasi #3: Pembentangan Projek Inovasi",
+        q: "Kumpulan anda terpilih membentangkan hasil projek inovasi sains di hadapan dewan sekolah menggunakan animasi visual, infografik, dan format slaid 6x6.",
+        correct: "powerpoint",
+        name: "MS PowerPoint",
+        explain: "Tepat sekali! MS PowerPoint direka khusus untuk mempersembahkan idea secara visual menggunakan slaid, animasi pergerakan, dan infografik dinamik."
+      },
+      {
+        tag: "Situasi #4: Pangkalan Data Perpustakaan",
+        q: "Pustakawan sekolah perlu menguruskan sistem rekod 15,000 buah buku, nombor ISBN, tarikh pinjaman, dan maklumat kad ahli murid dengan jadual yang saling berhubung (Relational Database).",
+        correct: "access",
+        name: "MS Access",
+        explain: "Tepat sekali! MS Access mengurus pangkalan data relasi berskala besar dengan hubungan kunci utama (Primary Key) bagi mengelakkan pertindihan data."
+      },
+      {
+        tag: "Situasi #5: Komunikasi & Temu Janji Rasmi",
+        q: "Guru Kaunseling ingin menghantar jemputan rasmi kepada penceramah motivasi luar dan menetapkan tarikh temu janji automatik ke dalam Kalendar digital.",
+        correct: "outlook",
+        name: "MS Outlook",
+        explain: "Tepat sekali! MS Outlook ialah pengurus maklumat peribadi yang mengintegrasikan perkhidmatan emel rasmi, kalendar mesyuarat, dan senarai tugasan."
+      },
+      {
+        tag: "Situasi #6: Kewangan & Stok Koperasi",
+        q: "Bendahari Koperasi Sekolah merekodkan harga modal, harga jualan 50 jenis alat tulis, dan mengira untung bersih harian menggunakan formula =SUM() dan logik syarat =IF().",
+        correct: "excel",
+        name: "MS Excel",
+        explain: "Tepat sekali! MS Excel membolehkan pengiraan kewangan yang kompleks dan semakan baki stok dengan formula logik berantai."
+      },
+      {
+        tag: "Situasi #7: Cetakan Surat Jemputan Pukal (Mail Merge)",
+        q: "Guru Tingkatan ingin mencetak 120 keping surat jemputan Hari Anugerah Cemerlang kepada ibu bapa di mana setiap surat mengandungi nama murid dan markah yang berbeza secara automatik.",
+        correct: "word",
+        name: "MS Word (Mail Merge)",
+        explain: "Tepat sekali! Ciri Mail Merge (Cantum Mel) dalam MS Word menggabungkan templat dokumen dengan senarai data nama murid untuk cetakan surat peribadi pantas."
+      },
+      {
+        tag: "Situasi #8: Tayangan Multimedia Pertandingan Bahas",
+        q: "Pasukan bahas sekolah menyediakan tayangan multimedia interaktif yang mengandungi video klip hujah 2 minit, carta alir strategi, dan kesan bunyi latar penegasan masa.",
+        correct: "powerpoint",
+        name: "MS PowerPoint",
+        explain: "Tepat sekali! MS PowerPoint membolehkan penyisipan klip video, audio berwaktu, dan transisi slaid yang menarik perhatian audiens."
+      },
+      {
+        tag: "Situasi #9: Carian & Laporan Kehadiran 100%",
+        q: "Unit Hal Ehwal Murid (HEM) ingin menjana laporan segera (Query & Report) bagi menapis dan menyenaraikan hanya murid yang mencapai kehadiran 100% daripada keseluruhan 1,200 murid sekolah.",
+        correct: "access",
+        name: "MS Access",
+        explain: "Tepat sekali! Fungsi Pertanyaan (Query) dan Laporan (Report) dalam MS Access membolehkan penapisan ribuan data mengikut syarat khusus dalam sekelip mata."
+      },
+      {
+        tag: "Situasi #10: Kelas Bimbingan Maya Cuti Penggal",
+        q: "Guru menganjurkan bengkel bimbingan SPM secara langsung (Live) dari rumah semasa cuti penggal lengkap dengan panggilan video beramai-ramai, perkongsian skrin bahan PdP, dan ruang perbincangan sembang.",
+        correct: "teams",
+        name: "MS Teams",
+        explain: "Tepat sekali! MS Teams ialah hab kolaborasi bilik darjah digital yang menyokong telesidang video interaktif, perkongsian fail serentak, dan sembang kumpulan."
+      }
+    ];
+
+    let currOfficeIdx = 0;
+    let officeScore = 0;
+    let officeAnswered = new Array(officeScenarios.length).fill(false);
+
+    function updateOfficeUI() {
+      const current = officeScenarios[currOfficeIdx];
+      const progBadge = document.getElementById('office-progress-badge');
+      const scoreBadge = document.getElementById('office-score-badge');
+      const tagEl = document.getElementById('office-scenario-tag');
+      const qText = document.getElementById('office-question-text');
+      const feedback = document.getElementById('office-feedback');
+      const nextBtn = document.getElementById('office-next-btn');
+
+      if (progBadge) progBadge.innerText = `Soalan ${currOfficeIdx + 1} / ${officeScenarios.length}`;
+      if (scoreBadge) scoreBadge.innerText = `Skor: ${officeScore} / ${officeScenarios.length * 10}`;
+      if (tagEl) tagEl.innerText = `📌 ${current.tag}`;
+      if (qText) qText.innerText = `"${current.q}"`;
+      if (feedback) feedback.classList.add('hidden');
+      if (nextBtn) nextBtn.classList.add('hidden');
+    }
+
+    function checkOfficeChoice(choice) {
+      const current = officeScenarios[currOfficeIdx];
+      const feedback = document.getElementById('office-feedback');
+      const nextBtn = document.getElementById('office-next-btn');
+      if (!feedback) return;
+
+      feedback.classList.remove('hidden');
+
+      if (choice === current.correct) {
+        if (!officeAnswered[currOfficeIdx]) {
+          officeAnswered[currOfficeIdx] = true;
+          officeScore += 10;
+          awardXP(20, `Tepat! Jawapan: ${current.name}`);
+        }
+        
+        feedback.className = 'text-xs sm:text-sm font-black p-4 rounded-2xl bg-emerald-100 text-emerald-950 border-3 border-emerald-500 shadow-md animate-bounce-subtle';
+        feedback.innerHTML = `
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xl">🎉</span>
+            <span class="text-emerald-900 font-extrabold uppercase">TAHNIAH! JAWAPAN TEPAT (${current.name})</span>
+          </div>
+          <p class="text-emerald-900 font-semibold">${current.explain}</p>
+        `;
+
+        const scoreBadge = document.getElementById('office-score-badge');
+        if (scoreBadge) scoreBadge.innerText = `Skor: ${officeScore} / ${officeScenarios.length * 10}`;
+
+        if (nextBtn) {
+          nextBtn.classList.remove('hidden');
+          if (currOfficeIdx === officeScenarios.length - 1) {
+            nextBtn.innerText = 'Lihat Keputusan Penuh 🏆';
+          } else {
+            nextBtn.innerText = 'Soalan Seterusnya ➔';
+          }
+        }
+      } else {
+        feedback.className = 'text-xs sm:text-sm font-black p-4 rounded-2xl bg-rose-100 text-rose-950 border-3 border-rose-400 shadow-md';
+        feedback.innerHTML = `
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xl">❌</span>
+            <span class="text-rose-900 font-extrabold uppercase">PILIHAN KURANG TEPAT!</span>
+          </div>
+          <p class="text-rose-900 font-semibold">Petunjuk Milo & Bit: Fikirkan fungsi utama setiap aplikasi (Dokumen Teks, Hamparan Kira-kira, Slaid Visual, Pangkalan Data, Emel atau Bilik Darjah Maya). Cuba klik pilihan lain!</p>
+        `;
+        playSound('error');
+      }
+    }
+
+    function nextOfficeQuestion() {
+      if (currOfficeIdx < officeScenarios.length - 1) {
+        currOfficeIdx++;
+        updateOfficeUI();
+      } else {
+        showOfficeQuizSummary();
+      }
+    }
+
+    function showOfficeQuizSummary() {
+      const card = document.getElementById('office-scenario-card');
+      if (!card) return;
+
+      awardXP(50, 'Menamatkan Semua 10 Cabaran MS Office!');
+      playSound('success');
+
+      card.innerHTML = `
+        <div class="text-center py-6 space-y-5">
+          <div class="w-24 h-24 mx-auto rounded-3xl overflow-hidden character-frame-3d border-4 border-purple-500 shadow-2xl animate-float">
+            <img src="assets/milo.jpg" alt="Milo Champion" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <span class="bg-amber-400 text-slate-950 font-black text-xs px-4 py-1.5 rounded-full uppercase border-2 border-amber-500 shadow-sm">
+              🏆 LENCANA PAKAR MS OFFICE
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Hebat! Anda Menguasai 10 Senario MS Office!</h3>
+            <p class="text-xs sm:text-sm text-slate-700 font-bold max-w-lg mx-auto mt-2">
+              Markah Akhir Anda: <span class="text-purple-700 font-black text-lg">${officeScore} / ${officeScenarios.length * 10}</span>. Anda kini tahu bila dan mengapa setiap perisian Office digunakan dalam kehidupan seharian!
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-xl mx-auto text-left text-xs font-bold pt-2">
+            <div class="bg-white p-3 rounded-xl border-2 border-blue-300">📄 <strong>Word:</strong> Surat & Mail Merge</div>
+            <div class="bg-white p-3 rounded-xl border-2 border-emerald-300">📈 <strong>Excel:</strong> Kira-kira & Graf</div>
+            <div class="bg-white p-3 rounded-xl border-2 border-orange-300">📽️ <strong>PowerPoint:</strong> Slaid & Video</div>
+            <div class="bg-white p-3 rounded-xl border-2 border-red-300">🗄️ <strong>Access:</strong> Pangkalan Data</div>
+            <div class="bg-white p-3 rounded-xl border-2 border-sky-300">✉️ <strong>Outlook:</strong> Emel & Kalendar</div>
+            <div class="bg-white p-3 rounded-xl border-2 border-indigo-300">👥 <strong>Teams:</strong> Kelas Maya Live</div>
+          </div>
+
+          <div class="pt-4">
+            <button onclick="restartOfficeQuiz()" class="btn-3d-purple px-8 py-3 rounded-2xl font-black text-white text-sm shadow-xl hover:scale-105 transition">
+              🔄 Main Semula Cabaran (10 Soalan)
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function restartOfficeQuiz() {
+      currOfficeIdx = 0;
+      officeScore = 0;
+      officeAnswered = new Array(officeScenarios.length).fill(false);
+      
+      const card = document.getElementById('office-scenario-card');
+      if (card) {
+        card.innerHTML = `
+          <!-- Category / Role Tag -->
+          <div class="flex items-center justify-between">
+            <span id="office-scenario-tag" class="text-xs font-black text-purple-800 bg-purple-200 px-3 py-1 rounded-full uppercase border border-purple-300">
+              📌 Situasi #1
+            </span>
+            <span id="office-hint-text" class="text-xs text-slate-500 font-bold">Pilih 1 jawapan di bawah:</span>
+          </div>
+
+          <!-- Question Prompt -->
+          <div class="bg-white p-5 rounded-2xl border-2 border-purple-300 shadow-sm">
+            <h4 id="office-question-text" class="text-base sm:text-lg font-black text-slate-900 leading-relaxed">
+              "Cikgu meminta anda mengira purata markah ujian 35 orang murid kelas anda dan menjana graf bar kedudukan tertinggi secara automatik."
+            </h4>
+          </div>
+
+          <!-- 6 Colorful 3D Choice Buttons -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+            <button onclick="checkOfficeChoice('word')" class="p-3.5 rounded-2xl bg-white hover:bg-blue-600 hover:text-white border-3 border-blue-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📄</span>
+              <span>MS Word</span>
+              <span class="text-[9px] text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md font-bold">Dokumen</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('excel')" class="p-3.5 rounded-2xl bg-white hover:bg-emerald-600 hover:text-white border-3 border-emerald-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📈</span>
+              <span>MS Excel</span>
+              <span class="text-[9px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md font-bold">Hamparan</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('powerpoint')" class="p-3.5 rounded-2xl bg-white hover:bg-orange-600 hover:text-white border-3 border-orange-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">📽️</span>
+              <span>PowerPoint</span>
+              <span class="text-[9px] text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md font-bold">Slaid 6x6</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('access')" class="p-3.5 rounded-2xl bg-white hover:bg-red-600 hover:text-white border-3 border-red-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">🗄️</span>
+              <span>MS Access</span>
+              <span class="text-[9px] text-red-700 bg-red-100 px-2 py-0.5 rounded-md font-bold">Pangkalan Data</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('outlook')" class="p-3.5 rounded-2xl bg-white hover:bg-sky-600 hover:text-white border-3 border-sky-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">✉️</span>
+              <span>MS Outlook</span>
+              <span class="text-[9px] text-sky-700 bg-sky-100 px-2 py-0.5 rounded-md font-bold">Emel & Jadual</span>
+            </button>
+
+            <button onclick="checkOfficeChoice('teams')" class="p-3.5 rounded-2xl bg-white hover:bg-indigo-600 hover:text-white border-3 border-indigo-500 text-xs font-black text-slate-900 transition flex flex-col items-center gap-1.5 shadow-md transform hover:-translate-y-1">
+              <span class="text-3xl">👥</span>
+              <span>MS Teams</span>
+              <span class="text-[9px] text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md font-bold">Kelas Maya</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Feedback Banner -->
+          <div id="office-feedback" class="text-xs font-black p-4 rounded-2xl hidden shadow-md"></div>
+
+          <!-- Next Button / Completion Controls -->
+          <div class="flex justify-between items-center pt-2">
+            <button onclick="restartOfficeQuiz()" class="text-xs text-purple-700 hover:underline font-black flex items-center gap-1">
+              🔄 Mula Semula Cabaran
+            </button>
+            <button id="office-next-btn" onclick="nextOfficeQuestion()" class="hidden btn-3d-yellow px-6 py-2.5 rounded-xl font-black text-slate-950 text-xs shadow-md">
+              Soalan Seterusnya ➔
+            </button>
+          </div>
+        `;
+      }
+      updateOfficeUI();
+    }
+
+    // --- SIMULASI 6: LIVE EXCEL RECALC ---
+    function recalcExcel() {
+      const m1 = parseInt(document.getElementById('sc-m1').value, 10) || 0;
+      const m2 = parseInt(document.getElementById('sc-m2').value, 10) || 0;
+      const b1 = parseInt(document.getElementById('sc-b1').value, 10) || 0;
+      const b2 = parseInt(document.getElementById('sc-b2').value, 10) || 0;
+      const k1 = parseInt(document.getElementById('sc-k1').value, 10) || 0;
+      const k2 = parseInt(document.getElementById('sc-k2').value, 10) || 0;
+
+      const totM = m1 + m2;
+      const totB = b1 + b2;
+      const totK = k1 + k2;
+
+      document.getElementById('sc-m-total').innerText = totM;
+      document.getElementById('sc-b-total').innerText = totB;
+      document.getElementById('sc-k-total').innerText = totK;
+
+      document.getElementById('sc-m-status').innerText = totM >= 100 ? 'Layak Final' : 'Saringan';
+      document.getElementById('sc-b-status').innerText = totB >= 100 ? 'Layak Final' : 'Saringan';
+      document.getElementById('sc-k-status').innerText = totK >= 100 ? 'Layak Final' : 'Saringan';
+
+      const maxVal = Math.max(totM, totB, totK, 200);
+      document.getElementById('chart-lbl-red').innerText = `${totM} Mata`;
+      document.getElementById('chart-lbl-blue').innerText = `${totB} Mata`;
+      document.getElementById('chart-lbl-yellow').innerText = `${totK} Mata`;
+
+      document.getElementById('chart-bar-red').style.width = `${(totM / maxVal) * 100}%`;
+      document.getElementById('chart-bar-blue').style.width = `${(totB / maxVal) * 100}%`;
+      document.getElementById('chart-bar-yellow').style.width = `${(totK / maxVal) * 100}%`;
+    }
+
+    // --- GRAND QUIZ SYSTEM ---
+    const quizQuestions = [
+      {
+        q: "Manakah antara berikut menerangkan perbezaan utama antara LAN dan WAN?",
+        options: [
+          "LAN meliputi kawasan setempat terhad (makmal sekolah), manakala WAN meliputi kawasan luas merentasi bandar/dunia.",
+          "LAN tidak memerlukan perkakasan, manakala WAN memerlukan kabel telefon sahaja.",
+          "LAN hanya untuk telefon bimbit, manakala WAN untuk komputer riba.",
+          "LAN lebih perlahan daripada WAN kerana jaraknya dekat."
+        ],
+        answer: 0,
+        explanation: "Tepat! LAN (Local Area Network) untuk kawasan kecil setempat dengan kelajuan tinggi, manakala WAN (Wide Area Network) menghubungkan rangkaian global seperti Internet."
+      },
+      {
+        q: "Apakah fungsi tetapan 'Anyone with the link' + 'Viewer' dalam Google Drive?",
+        options: [
+          "Sesiapa yang ada link boleh memadam fail anda dari komputer mereka.",
+          "Sesiapa yang mempunyai link boleh melihat dan memuat turun fail tetapi tidak boleh menyunting teks di dalamnya.",
+          "Hanya pemilik akaun emel sahaja boleh melihat dokumen.",
+          "Fail akan dihantar secara automatik ke seluruh kenalan WhatsApp anda."
+        ],
+        answer: 1,
+        explanation: "Tepat! 'Viewer' memberi kebenaran membaca/muat turun tanpa mengubah kandungan fail asal."
+      },
+      {
+        q: "Mengapakah frekuensi WiFi 5 GHz lebih pantas berbanding 2.4 GHz?",
+        options: [
+          "Kerana ia menggunakan saluran data yang lebih luas dan kurang sesak, walaupun jarak liputannya lebih pendek.",
+          "Kerana ia tidak menggunakan gelombang radio elektrik.",
+          "Kerana ia beroperasi menggunakan cahaya lampu bilik.",
+          "Kerana ia tidak memerlukan kata laluan WPA2."
+        ],
+        answer: 0,
+        explanation: "Tepat! 5 GHz menawarkan saluran data yang lebih luas dan laju, tetapi gelombangnya lebih sukar menembusi dinding tebal."
+      },
+      {
+        q: "Apakah peranan utama 'Prompt' dalam aplikasi Kecerdasan Buatan (AI)?",
+        options: [
+          "Untuk mematikan kuasa komputer secara automatik.",
+          "Sebagai arahan atau input konteks berstruktur yang memandu AI menghasilkan output tepat mengikut kehendak kita.",
+          "Sebagai antivirus untuk mengesan virus trojan.",
+          "Untuk mencetak dokumen pada kertas secara terus."
+        ],
+        answer: 1,
+        explanation: "Tepat! Prompt adalah teks arahan panduan. Kualiti prompt menentukan kualiti jawapan AI."
+      },
+      {
+        q: "Jika anda menerima emel mencurigakan yang meminta nombor TAC/OTP bank dengan alasan akaun anda akan dibekukan, ini merupakan taktik...",
+        options: [
+          "Pemasangan perisian kemas kini rasmi.",
+          "Kejuruteraan Sosial & Phishing yang memanipulasi rasa panik mangsa.",
+          "Pemulihan sandaran fail Google Drive.",
+          "Sambungan automatik modem gentian optik."
+        ],
+        answer: 1,
+        explanation: "Tepat! Scammer menggunakan taktik Phishing dan kejuruteraan sosial dengan menakut-nakutkan mangsa untuk mencuri maklumat peribadi."
+      }
+    ];
+
+    function renderQuiz() {
+      const curr = quizQuestions[state.quizCurrentIndex];
+      document.getElementById('quiz-curr-idx').innerText = state.quizCurrentIndex + 1;
+      document.getElementById('quiz-q-text').innerText = curr.q;
+      
+      const optBox = document.getElementById('quiz-options-box');
+      optBox.innerHTML = '';
+
+      curr.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'w-full text-left p-4 rounded-2xl bg-white hover:bg-amber-100 border-3 border-slate-300 text-xs text-slate-950 font-black transition flex items-start gap-3 shadow-sm';
+        btn.innerHTML = `<span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 shadow">${String.fromCharCode(65 + idx)}</span> <span>${opt}</span>`;
+        btn.onclick = () => handleQuizAnswer(idx, btn);
+        optBox.appendChild(btn);
+      });
+
+      document.getElementById('quiz-explanation').classList.add('hidden');
+      document.getElementById('quiz-next-btn').classList.add('hidden');
+    }
+
+    function handleQuizAnswer(selectedIdx, btnElement) {
+      const curr = quizQuestions[state.quizCurrentIndex];
+      const expl = document.getElementById('quiz-explanation');
+      const allBtns = document.getElementById('quiz-options-box').querySelectorAll('button');
+
+      allBtns.forEach(b => b.disabled = true);
+
+      if (selectedIdx === curr.answer) {
+        btnElement.classList.add('border-emerald-500', 'bg-emerald-100');
+        expl.className = 'p-4 rounded-2xl text-xs font-black bg-emerald-100 text-emerald-950 border-3 border-emerald-400 block shadow-md';
+        expl.innerHTML = `✅ <strong>TEPAT!</strong> ${curr.explanation}`;
+        state.quizScore++;
+        awardXP(30, `Menjawab Soalan ${state.quizCurrentIndex + 1} dengan Tepat!`);
+      } else {
+        btnElement.classList.add('border-red-500', 'bg-red-100');
+        allBtns[curr.answer].classList.add('border-emerald-500', 'bg-emerald-100');
+        expl.className = 'p-4 rounded-2xl text-xs font-black bg-red-100 text-red-950 border-3 border-red-400 block shadow-md';
+        expl.innerHTML = `❌ <strong>KURANG TEPAT.</strong> ${curr.explanation}`;
+        playSound('error');
+      }
+
+      document.getElementById('quiz-score-pill').innerText = `Markah: ${state.quizScore} / ${quizQuestions.length}`;
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+
+    function nextQuizQuestion() {
+      state.quizCurrentIndex++;
+      if (state.quizCurrentIndex < quizQuestions.length) {
+        renderQuiz();
+      } else {
+        document.getElementById('quiz-box').classList.add('hidden');
+        document.getElementById('cert-section').classList.remove('hidden');
+        awardXP(100, 'Berjaya Menyelesaikan Grand Quiz!');
+      }
+    }
+
+    // --- CERTIFICATE GENERATION ---
+    function generateCertificate() {
+      const name = document.getElementById('cert-input-name').value.trim() || 'NAMA PELAJAR';
+      const school = document.getElementById('cert-input-school').value.trim() || 'SEKOLAH MENENGAH MALAYSIA';
+
+      document.getElementById('cert-display-name').innerText = name.toUpperCase();
+      document.getElementById('cert-display-school').innerText = school.toUpperCase();
+
+      const randomSerial = 'MB-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('cert-serial-no').innerText = `NO SIRI: ${randomSerial}`;
+
+      const printable = document.getElementById('printable-cert');
+      printable.classList.remove('hidden');
+      printable.scrollIntoView({ behavior: 'smooth' });
+      playSound('success');
+    }
+
+    // Initialize on page load
+    window.onload = function() {
+      updateBinaryConverter();
+      testPasswordStrength();
+      generateSimPrompt();
+      updateOfficeUI();
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
