@@ -219,18 +219,25 @@
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-4 border-amber-400 px-4 py-3 shadow-lg">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
       
-      <!-- Brand & Mascot Intro with 3D Thumbnail -->
+      <!-- Brand & Mascot Intro with 3D Thumbnail & School Logo -->
       <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('hub')">
-        <div class="relative w-14 h-14 rounded-2xl overflow-hidden character-frame-3d border-2 border-amber-400 bg-sky-100 flex items-center justify-center animate-robot">
+        <!-- School Crest Logo -->
+        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl overflow-hidden p-1 bg-white border-2 border-amber-400 shadow-md flex items-center justify-center shrink-0 hover:scale-105 transition">
+          <img src="assets/logo_smkse.png" alt="Logo SMKSE" class="w-full h-full object-contain">
+        </div>
+        
+        <!-- Mascot Avatar -->
+        <div class="relative w-13 h-13 sm:w-14 sm:h-14 rounded-2xl overflow-hidden character-frame-3d border-2 border-amber-400 bg-sky-100 flex items-center justify-center animate-robot shrink-0 hidden sm:flex">
           <img src="assets/bit.jpg" alt="Bit Robot Mascot" class="w-full h-full object-cover">
           <span class="absolute -bottom-1 -right-1 bg-red-600 text-[10px] font-black px-1.5 py-0.2 rounded-full text-white border border-white">AI</span>
         </div>
+
         <div>
           <div class="flex items-center space-x-2">
-            <span class="font-bubble text-3xl text-sky-600 tracking-wider drop-shadow-sm">MILO & BIT</span>
-            <span class="bg-gradient-to-r from-amber-500 to-orange-500 text-[11px] font-black px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-md">The Digital Quest</span>
+            <span class="font-bubble text-2xl sm:text-3xl text-sky-600 tracking-wider drop-shadow-sm">MILO & BIT</span>
+            <span class="bg-gradient-to-r from-amber-500 to-orange-500 text-[10px] sm:text-[11px] font-black px-2.5 sm:px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-md">SMKSE Digital Quest</span>
           </div>
-          <p class="text-xs text-sky-900 font-bold">Platform Eksplorasi Digital & AI Sekolah Menengah</p>
+          <p class="text-xs text-sky-900 font-bold">SMKSE • Berusaha, Berjaya, Yakin | Platform Digital & AI</p>
         </div>
       </div>
 
@@ -288,8 +295,14 @@
       <!-- Poster Left Content -->
       <div class="flex-1 text-center lg:text-left space-y-4">
         
-        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-300 text-slate-950 px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-wider shadow-md border-2 border-amber-500 transform -rotate-1">
-          <span>✨</span> EDISI KHAS SEKOLAH MENENGAH & GURU INOVATIF MALAYSIA
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+          <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-300 text-slate-950 px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-wider shadow-md border-2 border-amber-500 transform -rotate-1">
+            <span>✨</span> EDISI KHAS SEKOLAH MENENGAH & GURU INOVATIF MALAYSIA
+          </div>
+          <div class="inline-flex items-center gap-2 bg-white text-slate-900 px-3.5 py-1.5 rounded-full font-black text-xs uppercase shadow-md border-2 border-amber-400">
+            <img src="assets/logo_smkse.png" alt="SMKSE" class="w-4 h-4 object-contain">
+            <span class="text-amber-800 font-extrabold">SMKSE</span>
+          </div>
         </div>
 
         <div>
@@ -2061,7 +2074,7 @@
           
           <div class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
             <input type="text" id="cert-input-name" placeholder="Nama Penuh Anda (Cth: Ahmad Danial)" class="w-full bg-white border-3 border-amber-400 text-slate-950 font-black text-sm px-4 py-3 rounded-2xl text-center shadow-sm">
-            <input type="text" id="cert-input-school" placeholder="Nama Sekolah (Cth: SMK Bestari)" class="w-full bg-white border-3 border-sky-400 text-slate-950 font-black text-sm px-4 py-3 rounded-2xl text-center shadow-sm">
+            <input type="text" id="cert-input-school" value="SMKSE" placeholder="Nama Sekolah (Cth: SMKSE)" class="w-full bg-white border-3 border-sky-400 text-slate-950 font-black text-sm px-4 py-3 rounded-2xl text-center shadow-sm">
           </div>
           
           <button onclick="generateCertificate()" class="btn-3d-yellow px-8 py-3.5 rounded-2xl font-black text-slate-950 text-base shadow-xl">
@@ -2073,10 +2086,24 @@
         <div id="printable-cert" class="hidden bg-gradient-to-br from-amber-50 via-white to-sky-50 border-8 border-amber-500 rounded-3xl p-8 sm:p-12 text-slate-900 text-center shadow-2xl relative overflow-hidden">
           
           <div class="flex justify-between items-center border-b-2 border-amber-300 pb-4 mb-6">
-            <div class="flex items-center gap-2">
-              <span class="text-3xl">🤖</span>
-              <span class="font-bubble text-2xl text-sky-600">MILO & BIT</span>
+            <!-- Left: Mascot/Brand -->
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-sky-400 shadow-sm">
+                <img src="assets/bit.jpg" alt="Bit" class="w-full h-full object-cover">
+              </div>
+              <div class="text-left">
+                <div class="font-bubble text-xl text-sky-600">MILO & BIT</div>
+                <div class="text-[9px] font-black text-slate-500 uppercase">Academy of Digital Superpowers</div>
+              </div>
             </div>
+
+            <!-- Center: Official School Logo -->
+            <div class="flex flex-col items-center">
+              <img src="assets/logo_smkse.png" alt="SMKSE Crest" class="w-16 h-16 object-contain drop-shadow">
+              <span class="text-[11px] font-black text-amber-900 uppercase tracking-wider mt-1">SMKSE</span>
+            </div>
+
+            <!-- Right: Certificate Serial -->
             <div class="text-right">
               <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest">SIJIL PENTAULIAHAN DIGITAL</div>
               <div id="cert-serial-no" class="font-mono text-xs font-black text-sky-700">NO: MB-2026-9842</div>
@@ -2086,19 +2113,24 @@
           <div class="space-y-4 py-4">
             <div class="text-xs font-black text-amber-800 uppercase tracking-widest">Dengan ini diperakui bahawa</div>
             <h2 id="cert-display-name" class="text-3xl sm:text-4xl font-bubble text-slate-900 tracking-wider">AHMAD DANIAL BIN ZULKIFLI</h2>
-            <div class="text-sm font-black text-slate-600" id="cert-display-school">SMK BESTARI JAYA</div>
-            <p class="text-xs text-slate-700 max-w-xl mx-auto leading-relaxed pt-2 font-bold">
+            <div class="text-base font-black text-amber-900 uppercase" id="cert-display-school">SMKSE</div>
+            <p class="text-xs sm:text-sm text-slate-700 max-w-xl mx-auto leading-relaxed pt-2 font-bold">
               Telah berjaya menyelesaikan kesemua 6 modul dan simulasi praktikal merangkumi <strong>Asas Teknologi Digital, Rangkaian LAN/WAN & WiFi, Keselamatan Siber, Microsoft Office Suite, Google Drive, dan Kecerdasan Buatan (AI)</strong>.
             </p>
           </div>
 
           <div class="flex justify-between items-end border-t-2 border-amber-300 pt-6 mt-6">
             <div class="text-left">
-              <div class="text-xs font-black text-slate-800">Milo & Bit AI Academy</div>
+              <div class="text-xs font-black text-slate-800">SMKSE • Milo & Bit Digital Academy</div>
               <div class="text-[10px] text-slate-500 font-bold">Platform Inovasi Pembelajaran Digital Sekolah Menengah</div>
             </div>
-            <div class="w-16 h-16 rounded-full border-4 border-amber-500 bg-amber-100 flex items-center justify-center font-bubble text-amber-800 text-xs shadow-inner">
-              LULUS
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl border-2 border-amber-400 bg-white p-1 flex items-center justify-center shadow-sm">
+                <img src="assets/logo_smkse.png" alt="SMKSE Seal" class="w-full h-full object-contain">
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-amber-500 bg-amber-100 flex items-center justify-center font-bubble text-amber-800 text-xs shadow-inner">
+                LULUS
+              </div>
             </div>
           </div>
 
@@ -2139,9 +2171,12 @@
   </div>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-white border-t-4 border-amber-400 py-8 px-4 text-center text-xs text-slate-700 space-y-2 mt-12">
-    <div class="font-bubble text-sky-600 text-2xl tracking-wider">Milo & Bit: The Digital Quest</div>
-    <p class="font-black">Direka untuk Memperkasakan Pendidikan Digital & AI Sekolah Menengah Malaysia • Dikuasakan oleh Google Antigravity</p>
+  <footer class="bg-white border-t-4 border-amber-400 py-8 px-4 text-center text-xs text-slate-700 space-y-3 mt-12">
+    <div class="flex items-center justify-center gap-3">
+      <img src="assets/logo_smkse.png" alt="SMKSE Logo" class="w-10 h-10 object-contain">
+      <div class="font-bubble text-sky-600 text-2xl tracking-wider">SMKSE & Milo • Bit: The Digital Quest</div>
+    </div>
+    <p class="font-black">SMKSE (Berusaha, Berjaya, Yakin) • Direka untuk Memperkasakan Pendidikan Digital & AI Sekolah Menengah Malaysia</p>
     <div class="text-xs text-amber-600 font-black">Turn Curiosity into Real Superpowers! 🚀</div>
   </footer>
 
@@ -2904,7 +2939,7 @@
     // --- CERTIFICATE GENERATION ---
     function generateCertificate() {
       const name = document.getElementById('cert-input-name').value.trim() || 'NAMA PELAJAR';
-      const school = document.getElementById('cert-input-school').value.trim() || 'SEKOLAH MENENGAH MALAYSIA';
+      const school = document.getElementById('cert-input-school').value.trim() || 'SMKSE';
 
       document.getElementById('cert-display-name').innerText = name.toUpperCase();
       document.getElementById('cert-display-school').innerText = school.toUpperCase();

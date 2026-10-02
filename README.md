@@ -6,7 +6,8 @@ Platform pembelajaran interaktif, gamifikasi, dan simulasi teknologi digital, ra
 
 ```text
 ├── index.html                  <-- Fail Utama Aplikasi Web (WAJIB)
-├── assets/                     <-- Folder Imej Watak 3D (WAJIB)
+├── assets/                     <-- Folder Imej Watak 3D & Logo (WAJIB)
+│   ├── logo_smkse.png          <-- Logo Rasmi SMKSE
 │   ├── milo.jpg
 │   ├── bit.jpg
 │   └── hero_banner.jpg
